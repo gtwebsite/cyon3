@@ -8,18 +8,20 @@
 			@extend .btn-primary;
 		}
 		select {
-			height: 2.875rem!important;
+			height: 2.375rem!important;
+			padding: 0 .75rem;
 			-webkit-appearance: none;
 			background-image: url('../images/icon-arrow-down.svg');
 			background-position: 100% 50%;
 			background-repeat: no-repeat;
-			background-size: 22px auto;
+			background-size: 1.125rem auto;
+			padding-right: $grid-gutter-width;
 		}
 		input.datepicker {
 			background-image: url('../images/icon-calendar.svg');
 			background-position: 100% 50%;
 			background-repeat: no-repeat;
-			background-size: 36px auto;
+			background-size: 2.25rem auto;
 		}
 		.gform_body {
 			.gform_fields {
@@ -44,12 +46,13 @@
 						color: inherit;
 						> li {
 							padding-right: 20px;
+							&+li {
+								margin-top: 3px;
+							}
 							label {
 								cursor: pointer;
 								font-style: italic;
-								&:before {
-									top: 0.4375rem;
-								}
+								margin-bottom: 0;
 							}
 							input[type=text] {
 								width: auto;
@@ -60,23 +63,15 @@
 					.gfield_radio {
 						> li {
 							@extend .abc-radio;
+							@extend .abc-radio-primary;
 							padding-left: 7px;
-							label {
-								&:after {
-									top: 0.625rem;
-								}
-							}
 						}
 					}
 					.gfield_checkbox {
 						> li {
 							@extend .abc-checkbox;
+							@extend .abc-checkbox-primary;
 							padding-left: 4px;
-							label {
-								&:after {
-									top: 4px;
-								}
-							}
 						}
 					}
 					.clear-multi {
