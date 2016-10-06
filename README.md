@@ -3,22 +3,25 @@
 ## Vendors
 * Sage 8.5.0: [https://github.com/roots/sage](https://github.com/roots/sage)
 * Bootstrap 4 - Alpha 4: [https://v4-alpha.getbootstrap.com/](https://v4-alpha.getbootstrap.com/)
+* Family SCSS: [https://lukyvj.github.io/family.scss/](https://lukyvj.github.io/family.scss/)
+* FontAwesome: [http://fontawesome.io/icons/](http://fontawesome.io/icons/)
 
 ## Usage
-* Clone git repository https://github.com/gtwebsite/cyon3.git
-* Run npm install
-* Run bower install
+* Navigate to themes/ and open git bash
+* Run `git clone https://github.com/gtwebsite/cyon3.git foldername`
+* Run `npm install`
+* Run `bower install`
 * Change assets/manifest.json devUrl:
 
 ## Notes
-* All text in PHP should be using _e('','cyon'); or __('','cyon');
+* All text in PHP should be using text domain `cyon`
 * Menu, widgets, and other settings should be in lib/setup.php
 * All overrides, custom function, shortcodes, etc, should be in lib/extras.php and using namespace
 * Remove unused css in assets/styles/main.scss, like gform and woocommerce
 * Remove unused scripts in bower.json and its reference in assets/scripts/main.js, like stellar, swiper, jssocials, and localScroll.
 
 ## Available Shortcodes
-* [fa icon="" link=""]
+* Fontawesome icon: `[fa icon="" link=""]`
 
 ## Plugins Required
 * Bootstrap 3 Shortcodes
