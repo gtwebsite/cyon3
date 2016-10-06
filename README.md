@@ -3,8 +3,8 @@
 ## Vendors
 * Sage 8.5.0: [https://github.com/roots/sage](https://github.com/roots/sage)
 * Bootstrap 4 - Alpha 4: [https://v4-alpha.getbootstrap.com/](https://v4-alpha.getbootstrap.com/)
-* Family SCSS: [https://lukyvj.github.io/family.scss/](https://lukyvj.github.io/family.scss/)
-* FontAwesome: [http://fontawesome.io/icons/](http://fontawesome.io/icons/)
+* Family.SCSS 1.0.8: [https://lukyvj.github.io/family.scss/](https://lukyvj.github.io/family.scss/)
+* FontAwesome 4.6.3: [http://fontawesome.io/icons/](http://fontawesome.io/icons/)
 
 ## Usage
 * Navigate to themes/ and open git bash
@@ -25,7 +25,7 @@
 
 ## Plugins Required
 * Bootstrap 3 Shortcodes
-* Soil [https://roots.io/plugins/soil/](https://roots.io/plugins/soil/)
+* Soil [https://github.com/roots/soil](https://github.com/roots/soil)
 
 ## Plugins Recommended
 * Duplicate Post
@@ -39,10 +39,13 @@
 
 ## Plugins Supported
 * Woocommerce
-* Yith Woocommerce Advanced Reviews
+* Yith Woocommerce Advanced Reviews - required for Woocommerce
 * Gravity Form
 
 ## Gravity Form field classnames
+
+Make sure to enable HTML 5 and disable styles in settings.
+
 * nolabel
 * nosublabel
 * gclear
