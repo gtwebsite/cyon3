@@ -1,0 +1,36 @@
+.widgets {
+	.widget {
+		h4 {
+			text-transform: uppercase;
+		}
+		> ul {
+			@extend .list-unstyled;
+			> li {
+				&+li {
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+	.calendar_wrap {
+		table {
+			@extend .table;
+			td, th {
+				padding-left: 0;
+				padding-right: 0;
+			}
+			thead, tbody {
+				td, th {
+					text-align: center;
+				}
+			}
+		}
+	}
+	&.sidebar {
+		.widget {
+			&+.widget {
+				margin-top: $spacing-2;
+			}
+		}
+	}
+}

@@ -1,0 +1,44 @@
+.content-info {
+	.buckets {
+		padding-top: $spacing-2;
+		padding-bottom: $spacing-2;
+		background-color: $gray-lightest;
+		aside {
+			@include make-row();
+			> * {
+				@include make-col-ready();
+				margin-top: $spacing-2;
+				@include first(1) {
+					margin-top: 0;
+				}
+				@include media-breakpoint-between(sm,md) {
+					@include make-col(6);
+					@include each(3) {
+						clear: both;
+					}
+					@include first(2) {
+						margin-top: 0;
+					}
+				}
+				@include media-breakpoint-up(lg) {
+					@include make-col(3);
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	.footer {
+		padding-top: $spacing-1;
+		padding-bottom: $spacing-1;
+		background-color: $gray-lighter;
+		.copyright {
+			display: inline-block;
+		}
+		ul {
+			display: inline-block;
+			li {
+				@extend .list-inline-item;
+			}
+		}
+	}
+}

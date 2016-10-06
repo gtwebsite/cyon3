@@ -1,0 +1,58 @@
+// Grid system
+.body {
+  .sidebar-primary & {
+    @extend .container;
+    padding-top: 4.375rem;
+    padding-bottom: 4.375rem;
+  }
+}
+.main {
+  @include make-col-ready();
+  @include media-breakpoint-only(md) {
+    @include make-col(12);
+    .sidebar-primary & {
+      @include make-col(8);
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    @include make-col(12);
+    .sidebar-primary & {
+      @include make-col(9);
+    }
+  }
+}
+.sidebar {
+  @include make-col-ready();
+  @include media-breakpoint-only(md) {
+    @include make-col(4);
+  }
+  @include media-breakpoint-up(lg) {
+    @include make-col(3);
+  }
+}
+.page-header {
+  padding-top: $spacing-2;
+  padding-bottom: $spacing-2;
+  background-color: $gray-lighter;
+  .sidebar-primary & {
+    padding-top: 0;
+    padding-bottom: $spacing-1;
+    background-color: transparent;
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+.page-section {
+  padding-top: $spacing-2;
+  padding-bottom: $spacing-2;
+  .sidebar-primary & {
+    padding-top: 0;
+    padding-bottom: 0;
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "sage",
+  "homepage": "https://roots.io/sage/",
+  "authors": [
+    "Ben Word <ben@benword.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "git://github.com/twbs/bootstrap.git#v4.0.0-alpha.4",
+    "matchHeight": "^0.7.0",
+    "Swiper": "swiper#^3.3.1",
+    "jquery.easing": "^1.3.1",
+    "jquery.localScroll": "^1.4.0",
+    "font-awesome": "^4.6.3",
+    "jquery.stellar": "^0.6.2",
+    "family.scss": "^1.0.8",
+    "fancybox": "^2.1.5",
+    "jssocials": "^1.3.1"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": [
+        "./scss/font-awesome.scss",
+        "./fonts/*"
+      ]
+    },
+    "fancybox": {
+      "main": [
+        "./source/jquery.fancybox.js",
+        "./source/helpers/jquery.fancybox-media.js",
+        "./source/helpers/jquery.fancybox-thumbs.js"
+      ]
+    },
+    "jquery.stellar": {
+      "main": [
+        "./jquery.stellar.js"
+      ]
+    }
+  }
+}

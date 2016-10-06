@@ -1,0 +1,45 @@
+body.tag {
+	display: block;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-align: inherit;
+  white-space: inherit;
+}
+body.archive {
+	.body {
+		.page-section {
+			.post {
+				&+.post {
+					margin-top: $spacing-1;
+					padding-top: $spacing-1;
+					border-top: 1px solid $gray-lighter;
+				}
+				header {
+					margin-bottom: $spacing-1;
+					h2 {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+}
+.navigation {
+	margin-top: $spacing-1;
+	.nav-links {
+		@extend .clearfix;
+		a {
+			@extend .btn;
+			@extend .btn-secondary;
+		}
+		.nav-previous {
+			float: left;
+		}
+		.nav-next {
+			float: right;
+		}
+	}
+}

@@ -1,0 +1,81 @@
+.banner {
+	z-index: 9;
+	position: relative;
+	background-color: $gray-lightest;
+	.navbar {
+		padding: 0;
+		.navbar-nav {
+			@include clearfix();
+			> li {
+				@extend .nav-item;
+				@include media-breakpoint-up(md) {
+					&+li {
+						margin-left: 5px;
+					}
+				}
+				&.menu-item-has-children {
+					@extend .dropdown;
+				}
+				&:hover, &.hover {
+					> .sub-menu {
+						display: block;
+					}
+				}
+				> a {
+					@extend .nav-link;
+					display: block;
+					padding-left: ( $grid-gutter-width / 2 );
+					padding-right: ( $grid-gutter-width / 2 );
+				}
+				> .sub-menu {
+					@extend .dropdown-menu;
+					margin-top: 0;
+					border: 0;
+					padding: 0;
+					background-color: $gray-lightest;
+					@include media-breakpoint-down(sm) {
+						position: static;
+						float: none;
+						width: 100%;
+						border-radius: 0;
+						border: 0;
+						> li {
+							> a {
+								padding-left: $grid-gutter-width;
+								padding-right: ( $grid-gutter-width / 2 );
+							}
+						}
+					}
+					> li {
+						> a {
+							@extend .dropdown-item;
+							display: block;
+						}
+					}
+				}
+			}
+		}
+		@include media-breakpoint-down(sm) {
+			.navbar-toggleable-sm {
+				right: 0;
+				top: 100%;
+				width: 100%;
+				max-width: 320px;
+				position: absolute;
+				background-color: $gray-lightest;
+			}
+		}
+	}
+	&.banner-sticky {
+		opacity: 0;
+		top: -100px;
+		left: 0;
+		width: 100%;
+		position: fixed;
+		transition: all ease-in-out .6s;
+		&.sticked {
+			opacity: 1;
+			top: 0;
+		}
+	}
+}
