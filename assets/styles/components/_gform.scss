@@ -89,6 +89,9 @@
 							display: none;
 						}
 					}
+					&.gform_hidden {
+						display: none;
+					}
 					&.nolabel {
 						> .gfield_label {
 							display: none;
