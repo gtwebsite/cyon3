@@ -352,6 +352,7 @@
 .ui-datepicker {
 	@extend .card;
 	z-index: 9!important;
+	display: none;
 	.ui-datepicker-header {
 		@extend .card-header;
 		a {
