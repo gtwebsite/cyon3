@@ -1,5 +1,13 @@
 // Grid system
 .body {
+  body:not(.sidebar-primary) & > .row {
+    margin-left: 0;
+    margin-right: 0;
+    > main {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
   .sidebar-primary & {
     @extend .container;
     padding-top: 4.375rem;
