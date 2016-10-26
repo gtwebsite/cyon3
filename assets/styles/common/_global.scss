@@ -1,6 +1,8 @@
 html {
-    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+}
+html, body {
+    overflow-x: hidden;
 }
 ::-moz-selection { 
     color: $white;
