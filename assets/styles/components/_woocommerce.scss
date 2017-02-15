@@ -86,7 +86,7 @@
 	}
 }
 .woocommerce-ordering {
-	@extend .m-b-2;
+	@extend .mb-2;
 	@include media-breakpoint-up(sm) {
 		text-align: right;
 	}
@@ -152,22 +152,22 @@
 		@include clearfix();
 		.quantity {
 			float: left;
-			margin-right: ( $grid-gutter-width / 2 );
+			margin-right: ( $grid-gutter-width-base / 2 );
 			@include media-breakpoint-down(lg) {
 				float: none;
-				margin-bottom: ( $grid-gutter-width / 2 );
+				margin-bottom: ( $grid-gutter-width-base / 2 );
 			}
 			@include media-breakpoint-down(md) {
 				float: left;
 				margin-bottom: 0;
 			}
 			@include media-breakpoint-down(xs) {
-				margin-right: ( $grid-gutter-width / 2 );
+				margin-right: ( $grid-gutter-width-base / 2 );
 			}
 			&:before {
 				content: 'Qty:';
 				display: inline-block;
-				margin-right: ( $grid-gutter-width / 2 );
+				margin-right: ( $grid-gutter-width-base / 2 );
 			}
 			input[type=number] {
 				@extend .form-control;
@@ -177,16 +177,16 @@
 		}
 		button {
 			float: left;
-			margin-right: ( $grid-gutter-width / 2 );
+			margin-right: ( $grid-gutter-width-base / 2 );
 			@include media-breakpoint-down(xs) {
 				margin-right: 0;
-				margin-bottom: ( $grid-gutter-width / 2 );
+				margin-bottom: ( $grid-gutter-width-base / 2 );
 			}
 		}
 	}
 	.images {
 		@include media-breakpoint-down(sm) {
-			margin-top: $grid-gutter-width;
+			margin-top: $grid-gutter-width-base;
 		}
 		.woocommerce-main-image {
 			display: block;
@@ -197,12 +197,12 @@
 			}
 		}
 		.thumbnails {
-			@include make-row(12px);
+			@include make-row();
 			> a {
 				display: block;
 				padding-top: 0.375rem;
 				padding-bottom: 0.375rem;
-				@include make-col-ready(12px);
+				@include make-col-ready();
 				img {
 					display: block;
 					width: 100%;
@@ -228,8 +228,8 @@
 		}
 		.jssocials-share-link {
 			border-radius: $border-radius;
-			padding-left: ( $grid-gutter-width / 2 );
-			padding-right: ( $grid-gutter-width / 2 );
+			padding-left: ( $grid-gutter-width-base / 2 );
+			padding-right: ( $grid-gutter-width-base / 2 );
 		}
 	}
 }
@@ -254,7 +254,7 @@
 		margin-top: $spacing-1;
 		h2 {
 			@extend h3;
-			@extend .m-t-0;
+			@extend .mt-0;
 		}
 	}
 	.comment-form {
@@ -272,7 +272,7 @@
 			&.comment-form-rating {
 				label {
 					float: left;
-					margin-right: ( $grid-gutter-width / 2 );
+					margin-right: ( $grid-gutter-width-base / 2 );
 					line-height: 24px;
 				}
 				.stars {
@@ -290,7 +290,7 @@
 		@extend .list-unstyled;
 		> li {
 			@include clearfix();
-			padding: ( $grid-gutter-width / 2 ) 0;
+			padding: ( $grid-gutter-width-base / 2 ) 0;
 			border-bottom: 1px solid $gray-lighter;
 			&:first-child {
 				padding-top: 0;
@@ -311,11 +311,11 @@
 				.meta {
 					color: #999;
 					font-style: italic;
-					margin-bottom: ( $grid-gutter-width / 2 );
+					margin-bottom: ( $grid-gutter-width-base / 2 );
 				}
 				.review_title {
 					@extend h5;
-					margin-top: ( $grid-gutter-width / 2 );
+					margin-top: ( $grid-gutter-width-base / 2 );
 					margin-bottom: 0.375rem;
 					padding-bottom: 0;
 				}
@@ -350,8 +350,8 @@ ul.products {
 	clear: both;
 	> li {
 		@include make-col-ready();
-		padding-top: ( $grid-gutter-width / 2 );
-		padding-bottom: ( $grid-gutter-width / 2 );
+		padding-top: ( $grid-gutter-width-base / 2 );
+		padding-bottom: ( $grid-gutter-width-base / 2 );
 		text-align: center;
 		@include media-breakpoint-down(md) {
 			@include make-col(6);
@@ -369,7 +369,7 @@ ul.products {
 			display: block;
 			position: relative;
 			color: inherit;
-			margin-bottom: ( $grid-gutter-width / 2 );
+			margin-bottom: ( $grid-gutter-width-base / 2 );
 			h3 {
 				@extend h4;
 				margin-top: $spacing-1;
@@ -523,7 +523,7 @@ ul.products {
 	}
 	.star-rating {
 		float: left;
-		margin-right: ( $grid-gutter-width / 2 );
+		margin-right: ( $grid-gutter-width-base / 2 );
 	}
 	.ywar_review_count {
 		float: left;
@@ -760,7 +760,7 @@ ul.products {
 				font-style: italic;
 				font-weight: 400;
 				text-align: left;
-				padding: ( $grid-gutter-width / 2 );
+				padding: ( $grid-gutter-width-base / 2 );
 				@include media-breakpoint-down(xs) {
 					padding: 10px;
 				}
@@ -779,7 +779,7 @@ ul.products {
 	tbody, tfoot {
 		tr {
 			th, td {
-				padding: ( $grid-gutter-width / 2 );
+				padding: ( $grid-gutter-width-base / 2 );
 				@include media-breakpoint-down(xs) {
 					padding: 10px;
 				}
@@ -868,10 +868,10 @@ dl.variation {
 }
 
 .cart_totals {
-	padding: $grid-gutter-width;
+	padding: $grid-gutter-width-base;
 	background-color: $gray-lighter;
 	@include media-breakpoint-down(sm) {
-		padding: 20px ( $grid-gutter-width / 2 );
+		padding: 20px ( $grid-gutter-width-base / 2 );
 	}
 	h2 {
 		@extend h4;
@@ -887,7 +887,7 @@ dl.variation {
 		ul {
 			@extend .list-unstyled;
 			li {
-				padding-left: ( $grid-gutter-width / 2 );
+				padding-left: ( $grid-gutter-width-base / 2 );
 				position: relative;
 				input {
 					top: 1px;
@@ -904,9 +904,9 @@ dl.variation {
 	.methods {
 		@extend .list-unstyled;
 		li {
-			padding-left: ( $grid-gutter-width / 2 );
+			padding-left: ( $grid-gutter-width-base / 2 );
 			position: relative;
-			margin-bottom: ( $grid-gutter-width / 2 );
+			margin-bottom: ( $grid-gutter-width-base / 2 );
 			input {
 				top: 1px;
 				left: 0;
@@ -940,8 +940,8 @@ dl.variation {
 		text-align: right;
 		.button {
 			@extend .btn-lg;
-			padding-left: $grid-gutter-width;
-			padding-right: $grid-gutter-width;
+			padding-left: $grid-gutter-width-base;
+			padding-right: $grid-gutter-width-base;
 		}
 	}
 }
@@ -1075,7 +1075,7 @@ form.login, form.checkout_coupon {
 		.woocommerce {
 			@include make-row();
 			.lost_reset_password {
-				@include make-col-ready();	
+				@include make-col-ready();
 			}
 			.woocommerce-MyAccount-navigation {
 				@include make-col-ready();

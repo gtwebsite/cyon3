@@ -1,0 +1,20 @@
+{
+	"folders":
+	[
+		{
+			"path": "assets\\styles"
+		},
+		{
+			"path": "assets\\scripts"
+		},
+		{
+			"path": "templates"
+		},
+		{
+			"path": "lib"
+		},
+		{
+			"path": "."
+		}
+	]
+}

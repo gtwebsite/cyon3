@@ -2,7 +2,7 @@
 	.buckets {
 		padding-top: $spacing-2;
 		padding-bottom: $spacing-2;
-		background-color: $gray-lightest;
+		background-color: $gray-lighter;
 		aside {
 			@include make-row();
 			> * {
@@ -28,9 +28,10 @@
 		}
 	}
 	.footer {
+		@extend .dark;
 		padding-top: $spacing-1;
 		padding-bottom: $spacing-1;
-		background-color: $gray-lighter;
+		background-color: $gray-light;
 		.copyright {
 			display: inline-block;
 		}

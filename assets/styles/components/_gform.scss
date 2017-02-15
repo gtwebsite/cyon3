@@ -15,7 +15,7 @@
 			background-position: 100% 50%;
 			background-repeat: no-repeat;
 			background-size: 1.125rem auto;
-			padding-right: $grid-gutter-width;
+			padding-right: $grid-gutter-width-base;
 		}
 		input.datepicker {
 			background-image: url('../images/icon-calendar.svg');
@@ -106,7 +106,7 @@
 					}
 					.ginput_container_fileupload {
 						.gform_fileupload_multifile {
-							@extend .m-b-1;
+							@extend .mb-1;
 							border: 5px dashed $gray-lighter;
 							padding: 30px 40px;
 						}
@@ -133,10 +133,10 @@
 								font-style: italic;
 							}
 							.gform_card_icon_container {
-								@extend .m-b-1;
+								@extend .mb-1;
 								@extend .clearfix;
 								.gform_card_icon {
-									@extend .m-r-1;
+									@extend .mr-1;
 									@extend .fa;
 									float: left;
 									overflow: hidden;
@@ -191,7 +191,7 @@
 							}
 							&.ginput_cardextras {
 								> span {
-									@extend .m-r-1;
+									@extend .mr-1;
 									display: inline-block;
 									input, select {
 										display: inline-block;
@@ -245,7 +245,7 @@
 						clear: both;
 					}
 					&.single-check {
-						@extend .nolabel;						
+						@extend .nolabel;
 					}
 					&.gfield_error {
 						@extend .has-danger;
@@ -280,7 +280,7 @@
 		.gf_progressbar_wrapper {
 			.gf_progressbar_title {
 				@extend h4;
-				@extend .m-b-1;
+				@extend .mb-1;
 			}
 			.gf_progressbar {
 				@extend .progress;

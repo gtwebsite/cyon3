@@ -1,28 +1,29 @@
 // Options
-$enable-flex:           		false;
-$enable-rounded:						false;
-$enable-transitions:				true;
+$enable-rounded:                false;
+$enable-transitions:            true;
 
 // Container
 $container-max-widths: (
-  sm: 576px,
-  md: 720px,
-  lg: 940px,
-  xl: 1170px
+   sm: 540px,
+   md: 720px,
+   lg: 960px,
+   xl: 1170px
 );
 
 // Colors
-$white:											#fff;
-$black:											#000;
-$brand-primary:         		#0275d8;
-$brand-secondary:						darken($brand-primary, 15%);
+$white:									        #fff;
+$black:									        #000;
+$body-bg:                       #f9f9f9;
+$brand-primary:                 #0275d8;
+$brand-secondary:               darken($brand-primary, 15%);
 
 // Fonts
-$font-family-base:					'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-$headings-font-family:			'Montserrat';
-$headings-font-weight:   		400;
+$font-family-base:              'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$headings-font-family:           'Montserrat', $font-family-base;
+$headings-font-weight:           400;
 
 // Margin / Padding
-$spacing-1:									1.563rem;
-$spacing-2: 								4.375rem;
-$spacer: 										$spacing-1;
+$menu-height:                    50px;
+$spacing-1:                      1.563rem;
+$spacing-2:                      4.375rem;
+$spacer:                         $spacing-1;

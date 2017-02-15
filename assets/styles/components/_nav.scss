@@ -1,0 +1,68 @@
+.banner-default {
+   background-color: $white;
+   box-shadow: 0 0 10px rgba(0,0,0,.1);
+   .navbar-nav {
+      @extend .clearfix;
+      > li {
+         @extend .nav-item;
+         > a {
+            @extend .nav-link;
+         }
+      }
+      .menu-item-has-children {
+         @extend .dropdown;
+         > a {
+            &:after {
+               content: '\f107';
+               font: normal normal normal 14px/1 FontAwesome;
+               display: inline-block;
+               margin-left: .625rem;
+            }
+         }
+         .sub-menu {
+            @extend .dropdown-menu;
+            border: 0;
+            opacity: 0;
+            margin-top: 0;
+            width: 16.25rem;
+            visibility: hidden;
+            display: block!important;
+            box-shadow: 0 5px 5px rgba(0,0,0,.08);
+            transition: all .3s ease-in-out;
+            > li {
+               &.menu-item-has-children {
+                  > a {
+                     &:after {
+                        content: '\f105';
+                        float: right;
+                     }
+                  }
+               }
+               a {
+                  @extend .dropdown-item;
+                  padding-top: 5px;
+                  padding-bottom: 5px;
+                  white-space: normal;
+               }
+               .sub-menu {
+                  left: 80%;
+                  top: 5px;
+               }
+            }
+         }
+         &.align-right, &:last-child {
+            > .sub-menu {
+               @extend .dropdown-menu-right;
+            }
+         }
+         &:hover {
+            > .sub-menu {
+               display: block;
+               visibility: visible;
+               opacity: 1;
+               transition-delay: .02s;
+            }
+         }
+      }
+   }
+}

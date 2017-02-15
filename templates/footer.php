@@ -1,4 +1,5 @@
 <footer class="content-info">
+	<?php if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
 	<div class="buckets">
 	  <div class="container">
 	  	<aside class="widgets matchHeight">
@@ -6,6 +7,7 @@
 	    </aside>
 	  </div>
 	</div>
+	<?php endif; ?>
 	<div class="footer">
 		<div class="container">
 			<div class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. <?php _e('All rights reserved.', 'cyon'); ?></div>

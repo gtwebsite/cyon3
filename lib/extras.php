@@ -61,6 +61,7 @@ function cc_mime_types($mimes) {
 add_filter('upload_mimes', __NAMESPACE__ . '\\cc_mime_types');
 
 add_filter( 'acf_the_content', __NAMESPACE__ . '\\remove_empty_p', 999, 1 );
+add_filter( 'widget_text', __NAMESPACE__ . '\\remove_empty_p', 999, 1 );
 function remove_empty_p( $content ){
   // clean up p tags around block elements
   $content = preg_replace( array(
@@ -160,3 +161,61 @@ if ( function_exists ( 'WC' ) ) {
 
 }
 /****** End Woocommerce ******/
+
+/****** Start Instagram ******/
+function get_instagram_feeds($access_token, $count) {
+  // Get token here: http://instagram.pixelunion.net/
+  $url = 'https://api.instagram.com/v1/users/self/media/recent/?count=' . $count . '&access_token=' . $access_token;
+  try {
+    $curl_connection = curl_init($url);
+    curl_setopt($curl_connection, CURLOPT_CONNECTTIMEOUT, 30);
+    curl_setopt($curl_connection, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl_connection, CURLOPT_SSL_VERIFYPEER, false);
+    $ig_response = json_decode(curl_exec($curl_connection), true);
+    curl_close($curl_connection);
+    $index = 0;
+    foreach ( $ig_response["data"] as $ig_data ) {
+      if ( $ig_data["type"] == "video" ) {
+        $url         = $ig_data["videos"]["standard_resolution"]["url"];
+        $video_cover = $ig_data["images"]["standard_resolution"]["url"];
+      } else {
+        $url         = $ig_data["images"]["standard_resolution"]["url"];
+        $video_cover = null;
+      }
+      $ig_result[$index] = array(
+        'message'      => null,
+        'created_time' => date('Y/m/d H:i:s', $ig_data["created_time"]),
+        'type'         => $ig_data["type"],
+        'url'          => $url,
+        'video_cover'  => $video_cover,
+        'link'         => $ig_data["link"]
+      );
+      $index++;
+    }
+    return $ig_result;
+  } catch (Exception $e) {
+    return $e->getMessage();
+  }
+}
+
+
+function instagram_func( $atts ) {
+    $a = shortcode_atts( array(
+        'token' => '',
+        'limit' => '12',
+    ), $atts );
+		$result = '';
+		$feed = __NAMESPACE__ . '\\' . get_instagram_feeds( $a['token'], $a['limit'] );
+
+		if( $feed ) {
+			$result .= '<ul class="instagram-feed list-unstyled row">';
+			foreach ( $feed as $f ) {
+				$result .= '<li class="col-md-3 col-sm-4 col-xs-6"><a href="'.$f['url'].'" class="fancybox" rel="instagram[]"><img src="'.$f['url'].'" /></a></li>';
+			}
+			$result .= '</ul>';
+		}
+    return $result;
+}
+add_shortcode( 'instagram', __NAMESPACE__ . '\\instagram_func' );
+
+/****** End Instagram ******/
