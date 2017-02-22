@@ -1,8 +1,6 @@
 .banner-default {
-   background-color: $white;
    box-shadow: 0 0 10px rgba(0,0,0,.1);
    .navbar-nav {
-      @extend .clearfix;
       > li {
          @extend .nav-item;
          > a {
@@ -24,7 +22,7 @@
             border: 0;
             opacity: 0;
             margin-top: 0;
-            width: 16.25rem;
+            width: 13rem;
             visibility: hidden;
             display: block!important;
             box-shadow: 0 5px 5px rgba(0,0,0,.08);
@@ -38,15 +36,19 @@
                      }
                   }
                }
+               &:hover {
+                  > a {
+                     background-color: $gray-lighter;
+                  }
+               }
                a {
                   @extend .dropdown-item;
-                  padding-top: 5px;
-                  padding-bottom: 5px;
+                  padding: .5rem .85rem;
                   white-space: normal;
                }
                .sub-menu {
-                  left: 80%;
-                  top: 5px;
+                  left: 60%;
+                  top: 70%;
                }
             }
          }
@@ -61,6 +63,79 @@
                visibility: visible;
                opacity: 1;
                transition-delay: .02s;
+            }
+         }
+      }
+   }
+}
+
+.flexnav {
+   @media (min-width: 800px) {
+      li {
+         float: none;
+         background-color: transparent;
+         a {
+            border-left: 0;
+         }
+         ul {
+            position: static;
+            li {
+               > ul {
+                  margin-left: 0;
+               }
+            }
+         }
+      }
+      &.opacity {
+         opacity: 0;
+      }
+      &.flexnav-show {
+         opacity: 1;
+      }
+   }
+   .touch-button {
+      display: block;
+      height: $menu-height;
+      width: $menu-height;
+      background-color: transparent;
+      &:before {
+         content: '\f107';
+         font-family: 'FontAwesome';
+         display: inline-block;
+         height: $menu-height;
+         line-height: $menu-height;
+      }
+      &.active {
+         background-color: transparent;
+         &:before {
+            content: '\f106';
+         }
+      }
+      .navicon {
+         display: none;
+      }
+   }
+   li {
+      a {
+         padding: .75rem 0;
+         min-height: $menu-height;
+         background-color: transparent;
+         border-bottom: 1px solid $gray-lightest;
+      }
+      ul {
+         @extend .list-unstyled;
+         padding-left: 1rem;
+         li {
+            a {
+               border-bottom: 0;
+               background-color: transparent;
+            }
+            ul {
+               li {
+                  a {
+                     background-color: transparent;
+                  }
+               }
             }
          }
       }

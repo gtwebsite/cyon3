@@ -1,6 +1,7 @@
 .banner {
 	z-index: 9;
 	position: relative;
+	background-color: $white;
 	.navbar-brand {
 		height: $menu-height;
 		line-height: $menu-height;
@@ -13,12 +14,40 @@
 		padding: 1rem 0;
 		border-bottom: 1px solid $gray-lighter;
 	}
+	.navbar {
+		padding: 0;
+	}
+	.navbar-toggler {
+		height: $menu-height;
+		line-height: $menu-height;
+		padding: 0 .625rem;
+		display: inline-block;
+		position: absolute;
+		color: inherit;
+		border-bottom: 0;
+		background-color: transparent;
+		&.navbar-toggler-right {
+			right: 0;
+		}
+		.touch-button {
+			display: none;
+		}
+	}
+	.navbar-toggleable-md {
+		.navbar-nav {
+			> li {
+				> a {
+					padding: 0 1rem;
+				}
+			}
+		}
+	}
 	.navbar-nav {
 		> li {
+			margin-left: 2px;
 			> a {
 				height: $menu-height;
             line-height: $menu-height;
-				padding: 0 .625rem;
 			}
 			&.action {
 				margin-left: 2rem;

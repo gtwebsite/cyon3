@@ -32,7 +32,9 @@ h2, h3, h4, h5, h6, p, ul, ol, dl {
 * > p:last-child, * > ul:last-child, * > h1:last-child, * > h2:last-child, * > h3:last-child, * > h4:last-child, * > h5:last-child, * > h6:last-child, * > blockquote:last-child {
    margin-bottom: 0;
 }
-
+a {
+   transition: all ease-in-out .3s;
+}
 .dark {
    color: $white;
    a, p, ul, ol, dl {

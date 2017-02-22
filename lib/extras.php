@@ -54,11 +54,25 @@ function fa_func( $atts ) {
 add_shortcode( 'fa', __NAMESPACE__ . '\\fa_func' );
 
 // Content and uploading files
+add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
+  global $wp_version;
+  if ( $wp_version == '4.7' || ( (float) $wp_version < 4.7 ) ) {
+     return $data;
+  }
+  $filetype = wp_check_filetype( $filename, $mimes );
+  return [
+      'ext'             => $filetype['ext'],
+      'type'            => $filetype['type'],
+      'proper_filename' => $data['proper_filename']
+  ];
+}, 10, 4 );
+
 function cc_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';
   return $mimes;
 }
 add_filter('upload_mimes', __NAMESPACE__ . '\\cc_mime_types');
+
 
 add_filter( 'acf_the_content', __NAMESPACE__ . '\\remove_empty_p', 999, 1 );
 add_filter( 'widget_text', __NAMESPACE__ . '\\remove_empty_p', 999, 1 );

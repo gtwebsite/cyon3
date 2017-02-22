@@ -25,24 +25,14 @@
           shares: ['facebook','twitter','googleplus','pinterest','email'],
           shareIn: 'popup'
         });
+        $('.flexnav').data('breakpoint','991').flexNav({
+          calcItemWidths: true
+        });
         $.stellar({
           horizontalScrolling: false,
           responsive: false,
         });
         $('.pagetoscroll, .woocommerce-product-rating').localScroll({ offset: -120, easing:'easeInOutExpo' });
-        $('.fancybox-thumb').fancybox({
-          prevEffect  : 'none',
-          nextEffect  : 'none',
-          helpers : {
-            title : {
-              type: 'outside'
-            },
-            thumbs  : {
-              width : 50,
-              height  : 50
-            }
-          }
-        });
         $(window).scroll(function() {
             if ( $(window).scrollTop() > 160 ) {
                 $('.banner-sticky').addClass('sticked');
