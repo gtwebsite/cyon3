@@ -280,10 +280,11 @@
 		.gf_progressbar_wrapper {
 			.gf_progressbar_title {
 				@extend h4;
-				@extend .mb-1;
+				margin-bottom: $spacing-1;
 			}
 			.gf_progressbar {
 				@extend .progress;
+				margin-bottom: $spacing-1;
 				height: 1.8rem;
 				background-color: $gray-lighter;
 				.gf_progressbar_percentage {
@@ -349,9 +350,14 @@
 		}
 	}
 }
+
+.ui-helper-clearfix {
+	@extend .clearfix;
+}
+
 .ui-datepicker {
 	@extend .card;
-	z-index: 9!important;
+	z-index: 4!important;
 	display: none;
 	.ui-datepicker-header {
 		@extend .card-header;
