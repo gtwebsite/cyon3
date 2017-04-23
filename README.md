@@ -2,9 +2,9 @@
 
 ## Vendors
 * Sage 8.5.0: [https://github.com/roots/sage](https://github.com/roots/sage)
-* Bootstrap 4 - Alpha 4: [https://v4-alpha.getbootstrap.com/](https://v4-alpha.getbootstrap.com/)
+* Bootstrap 4 - Alpha 6: [https://v4-alpha.getbootstrap.com/](https://v4-alpha.getbootstrap.com/)
 * Family.SCSS 1.0.8: [https://lukyvj.github.io/family.scss/](https://lukyvj.github.io/family.scss/)
-* FontAwesome 4.6.3: [http://fontawesome.io/icons/](http://fontawesome.io/icons/)
+* FontAwesome 4.7.0: [http://fontawesome.io/icons/](http://fontawesome.io/icons/)
 
 ## Usage
 * Navigate to themes/ and open git bash
