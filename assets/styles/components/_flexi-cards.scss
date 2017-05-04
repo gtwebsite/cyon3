@@ -1,0 +1,53 @@
+.f-row {
+   @include make-row();
+   .f-card {
+      margin-bottom: $grid-gutter-width-base;
+   }
+}
+
+.f-card {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+}
+
+.f-card-main {
+   padding-top: 1rem;
+   padding-bottom: 1rem;
+   flex: 1 1 auto;
+   p {
+      margin-bottom: .5rem;
+      &:last-child {
+         margin-bottom: 0;
+      }
+   }
+}
+
+.f-card-header {
+   position: relative;
+}
+
+.f-card-title {
+   margin-top: 0;
+   margin-bottom: .5rem;
+}
+
+.f-card-fill {
+   .f-card-main {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border: 1px solid $gray-lighter;
+      background-color: $white;
+   }
+   .f-card-footer {
+      padding: 1rem;
+      border: 1px solid $gray-lighter;
+      border-top: 0;
+      background-color: $gray-lightest;
+      &.f-card-action {
+         padding: 0;
+         border: 0;
+         background-color: transparent;
+      }
+   }
+}

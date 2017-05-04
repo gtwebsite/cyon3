@@ -68,7 +68,9 @@
 .select2-dropdown {
 	border-radius: 0;
 }
-
+.woocommerce-product-search {
+   @extend .search-form;
+}
 .required {
 	@extend .text-danger;
 }
@@ -130,7 +132,7 @@
 	top: 0.625rem;
 	left: 0.625rem;
 	position: absolute;
-	@include media-breakpoint-down(xs) {
+	@include media-breakpoint-down(sm) {
 		display: none;
 	}
 }
@@ -205,34 +207,42 @@
 		}
 	}
 	.images {
+		position: relative;
 		@include media-breakpoint-down(sm) {
 			margin-top: $grid-gutter-width-base;
 		}
-		.woocommerce-main-image {
-			display: block;
-			margin-bottom: 0.375rem;
-			img {
-				display: block;
-				width: 100%;
+		&:hover {
+			.woocommerce-product-gallery__trigger {
+				opacity: 1;
 			}
 		}
-		.thumbnails {
-			@include make-row();
-			> a {
-				display: block;
-				padding-top: 0.375rem;
-				padding-bottom: 0.375rem;
-				@include make-col-ready();
+		.woocommerce-product-gallery__trigger {
+			top: 0;
+			right: ( $grid-gutter-width-base / 2 );
+			z-index: 9;
+			position: absolute;
+			width: 3rem;
+			height: 3rem;
+			background: rgba($white,.8) url('../images/magnify.svg') 50% 50% / 1.5rem no-repeat;
+			opacity: 0;
+			overflow: hidden;
+			text-align: left;
+			text-indent: -999px;
+			transition: all ease-in-out .3s;
+		}
+		.flex-control-nav {
+			@extend .list-unstyled;
+			@extend .d-flex;
+			@extend .justify-content-center;
+			margin-top: 5px;
+			> li {
+				padding: 5px;
+				cursor: pointer;
 				img {
-					display: block;
-					width: 100%;
-				}
-			}
-			&.columns-4 {
-				> a {
-					@include make-col(3);
-					&.first {
-						clear: both;
+					opacity: 1;
+					transition: all ease-in-out .3s;
+					&.flex-active {
+						opacity: .3;
 					}
 				}
 			}
@@ -245,11 +255,6 @@
 		margin-top: $spacing-1;
 		h5 {
 			margin: 0 0 5px 0;
-		}
-		.jssocials-share-link {
-			border-radius: $border-radius;
-			padding-left: ( $grid-gutter-width-base / 2 );
-			padding-right: ( $grid-gutter-width-base / 2 );
 		}
 	}
 }
@@ -390,8 +395,8 @@ ul.products {
 			position: relative;
 			color: inherit;
 			margin-bottom: ( $grid-gutter-width-base / 2 );
-			h3 {
-				@extend h4;
+			.woocommerce-loop-product__title {
+				@extend h5;
 				margin-top: $spacing-1;
 				margin-bottom: .5rem;
 				transition: all ease-in-out .2s;
@@ -401,7 +406,7 @@ ul.products {
 			}
 			&:hover {
 				text-decoration: none;
-				h3 {
+				.woocommerce-loop-product__title {
 					color: $brand-primary;
 				}
 			}
@@ -521,13 +526,13 @@ ul.products {
 
 .star-rating {
 	height: 24px;
-	width: 120px;
-	background: url('../images/star-0.png') 0 50% no-repeat;
+	width: 126px;
+	background: url('../images/star-0.svg') 0 50% no-repeat;
 	background-size: auto 100%;
 	span {
 		display: block;
 		height: 24px;
-		background: url('../images/star-5.png') 0 50% no-repeat;
+		background: url('../images/star-5.svg') 0 50% no-repeat;
 		background-size: auto 100%;
 		overflow: hidden;
 		text-indent: -999px;
@@ -562,34 +567,38 @@ ul.products {
 
 .reviews_bar {
 	.ywar_review_row {
+		span {
+			height: 15px;
+			line-height: 15px;
+		}
 		.ywar_stars_value {
 			overflow: hidden;
 			text-indent: -9999px;
-			background: url('../images/star-5.png') 0 50% no-repeat;
-			background-size: 90% auto;
+			background: url('../images/star-5.svg') 0 50% no-repeat;
+			background-size: auto 100%;
 		}
 		&:nth-of-type(2) {
 			.ywar_stars_value {
-				background: url('../images/star-4.png') 0 50% no-repeat;
-				background-size: 90% auto;
+				background: url('../images/star-4.svg') 0 50% no-repeat;
+				background-size: auto 100%;
 			}
 		}
 		&:nth-of-type(3) {
 			.ywar_stars_value {
-				background: url('../images/star-3.png') 0 50% no-repeat;
-				background-size: 90% auto;
+				background: url('../images/star-3.svg') 0 50% no-repeat;
+				background-size: auto 100%;
 			}
 		}
 		&:nth-of-type(4) {
 			.ywar_stars_value {
-				background: url('../images/star-2.png') 0 50% no-repeat;
-				background-size: 90% auto;
+				background: url('../images/star-2.svg') 0 50% no-repeat;
+				background-size: auto 100%;
 			}
 		}
 		&:nth-of-type(5) {
 			.ywar_stars_value {
-				background: url('../images/star-1.png') 0 50% no-repeat;
-				background-size: 90% auto;
+				background: url('../images/star-1.svg') 0 50% no-repeat;
+				background-size: auto 100%;
 			}
 		}
 	}
@@ -597,28 +606,28 @@ ul.products {
 
 .stars {
 	height: 24px;
-	width: 120px;
-	background: url('../images/star-0.png') 0 50% no-repeat;
+	width: 126px;
+	background: url('../images/star-0.svg') 0 50% no-repeat;
 	background-size: auto 100%;
 	span {
 		display: block;
 	}
 	a {
 		height: 24px;
-		width: 24px;
+		width: 25px;
 		display: block;
 		float: left;
 		text-align: left;
 		overflow: hidden;
 		text-indent: -999px;
 		&:hover, &.active {
-			background: url('../images/star.png') 0 50% no-repeat;
+			background: url('../images/star.svg') 0 50% no-repeat;
 			background-size: auto 100%;
 		}
 	}
 	&.selected {
 		a {
-			background: url('../images/star.png') 0 50% no-repeat;
+			background: url('../images/star.svg') 0 50% no-repeat;
 			background-size: auto 100%;
 			&.active ~ a {
 				background: none;
@@ -626,14 +635,14 @@ ul.products {
 		}
 		&:hover {
 			a {
-				background: url('../images/star-hover.png') 0 50% no-repeat;
+				background: url('../images/star-hover.svg') 0 50% no-repeat;
 				background-size: auto 100%;
 				&.active ~ a {
-					background: url('../images/star-hover.png') 0 50% no-repeat;
+					background: url('../images/star-hover.svg') 0 50% no-repeat;
 					background-size: auto 100%;
 				}
 				&:hover {
-					background: url('../images/star-hover.png') 0 50% no-repeat;
+					background: url('../images/star-hover.svg') 0 50% no-repeat;
 					background-size: auto 100%;
 					& ~ a {
 						background: none;
@@ -644,10 +653,10 @@ ul.products {
 	}
 	&:hover {
 		a {
-			background: url('../images/star-hover.png') 0 50% no-repeat;
+			background: url('../images/star-hover.svg') 0 50% no-repeat;
 			background-size: auto 100%;
 			&:hover {
-				background: url('../images/star-hover.png') 0 50% no-repeat;
+				background: url('../images/star-hover.svg') 0 50% no-repeat;
 				background-size: auto 100%;
 				& ~ a {
 					background: none;

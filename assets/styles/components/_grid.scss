@@ -37,6 +37,9 @@
   @include media-breakpoint-up(lg) {
     @include make-col(3);
   }
+  @include media-breakpoint-down(sm) {
+     margin-top: $spacing-2;
+  }
 }
 .page-header {
   padding-top: $spacing-2;
