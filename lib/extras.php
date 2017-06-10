@@ -93,6 +93,7 @@ function remove_empty_p( $content ){
   ), $content );
   return preg_replace('#<p>(\s|&nbsp;)*+(<br\s*/*>)*(\s|&nbsp;)*</p>#i', '', $content);
 }
+add_filter( 'widget_text', 'do_shortcode', 11);
 
 /****** End Common ******/
 
@@ -103,6 +104,16 @@ if ( class_exists( 'GFCommon' ) ) {
 
   // Scripts move to footer
   add_filter('gform_init_scripts_footer', '__return_true');
+  add_filter( 'gform_cdata_open', __NAMESPACE__ . '\\wrap_gform_cdata_open', 1 );
+  function wrap_gform_cdata_open( $content = '' ) {
+    $content = 'document.addEventListener( "DOMContentLoaded", function() { ';
+    return $content;
+  }
+  add_filter( 'gform_cdata_close', __NAMESPACE__ . '\\wrap_gform_cdata_close', 99 );
+  function wrap_gform_cdata_close( $content = '' ) {
+    $content = ' }, false );';
+    return $content;
+  }
 
   // Activate credit card
   add_filter( 'gform_enable_credit_card_field', '__return_true', 11 );
