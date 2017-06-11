@@ -95,6 +95,22 @@ function remove_empty_p( $content ){
 }
 add_filter( 'widget_text', 'do_shortcode', 11);
 
+
+// Map shortcode [map lat="" lng="" xclass=""]
+function map_func( $atts ) {
+  $atts = shortcode_atts( array(
+    'lat'       => '',
+    'lng'       => '',
+    'zoom'      => '16',
+    'height'    => '600px',
+    'icon'      => get_bloginfo('stylesheet_directory') . '/dist/images/map-bubble.png',
+    'xclass'    => ''
+  ), $atts );
+  $html = '<div class="gmap '.$atts['xclass'].'" data-lat="'.$atts['lat'].'" data-lng="'.$atts['lng'].'" data-zoom="'.$atts['zoom'].'" data-icon="'.$atts['icon'].'" style="height: '.$atts['height'].'"></div>';
+  return $html;
+}
+add_shortcode( 'map', __NAMESPACE__ . '\\map_func' );
+
 /****** End Common ******/
 
 
@@ -223,22 +239,23 @@ function get_instagram_feeds($access_token, $count) {
   }
 }
 
-
 function instagram_func( $atts ) {
     $a = shortcode_atts( array(
         'token' => '',
         'limit' => '12',
     ), $atts );
 		$result = '';
-		$feed = __NAMESPACE__ . '\\' . get_instagram_feeds( $a['token'], $a['limit'] );
+		$feed = get_instagram_feeds( $a['token'], $a['limit'] );
 
-		if( $feed ) {
-			$result .= '<ul class="instagram-feed list-unstyled row">';
+		if( is_array( $feed ) ) {
+			$result .= '<ul class="instagram-feed list-unstyled row-sm">';
 			foreach ( $feed as $f ) {
-				$result .= '<li class="col-md-3 col-sm-4 col-xs-6"><a href="'.$f['url'].'" class="fancybox" rel="instagram[]"><img src="'.$f['url'].'" /></a></li>';
+				$result .= '<li class="col-md-3 col-sm-4 col-xs-6"><a href="'.$f['url'].'" data-fancybox="instagram-fancybox"><img src="'.$f['url'].'" /></a></li>';
 			}
 			$result .= '</ul>';
-		}
+		}else{
+      $result .= '<div class="alert alert-danger" role="alert">' . __('Error connecting...','cyon') . '</div>';
+    }
     return $result;
 }
 add_shortcode( 'instagram', __NAMESPACE__ . '\\instagram_func' );

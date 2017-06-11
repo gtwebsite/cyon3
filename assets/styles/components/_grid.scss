@@ -1,3 +1,22 @@
+// Small Grid
+.row-sm {
+   @include make-row( $grid-gutter-widths-sm );
+   > * {
+      @include make-col-ready( $grid-gutter-widths-sm );
+      padding-top: ( $grid-gutter-width-sm / 2 );
+      padding-bottom: ( $grid-gutter-width-sm / 2 );
+   }
+}
+
+.row-xs {
+   @include make-row( $grid-gutter-widths-xs );
+   > * {
+      @include make-col-ready( $grid-gutter-widths-xs );
+      padding-top: ( $grid-gutter-width-xs / 2 );
+      padding-bottom: ( $grid-gutter-width-xs / 2 );
+   }
+}
+
 // Grid system
 .body {
   body:not(.sidebar-primary) & > .row {

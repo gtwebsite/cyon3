@@ -92,6 +92,26 @@ function widgets_init() {
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 
+
+/**
+ * Theme Option if ACF Pro exists
+ */
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme Options',
+		'menu_title'	=> 'Theme Options',
+		'menu_slug' 	=> 'theme-general-options',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+  add_action('acf/init', __NAMESPACE__ . '\\custom_acf_init');
+}
+function custom_acf_init() {
+  if( get_field('google_map_key','option') ) {
+      acf_update_setting('google_api_key', get_field('google_map_key','option'));
+  }
+}
+
 /**
  * Determine which pages should NOT display the sidebar
  */
@@ -115,12 +135,15 @@ function display_sidebar() {
  */
 function assets() {
   wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), false, null);
-  wp_enqueue_style('customizer/css', get_bloginfo('stylesheet_directory').'/customizer-css.php', false, null);
+  // wp_enqueue_style('customizer/css', get_bloginfo('stylesheet_directory').'/customizer-css.php', false, null);
 
   if (is_single() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
   }
 
+  if( get_field('google_map_key','option') ) {
+    wp_enqueue_script('gmap3', 'https://maps.googleapis.com/maps/api/js?key=' . get_field('google_map_key','option'), ['jquery'], null, true);
+  }
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
@@ -128,4 +151,4 @@ add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
 function assets_admin() {
   wp_enqueue_script('sage/admin_js', Assets\asset_path('scripts/admin.js'), ['jquery'], null, true);
 }
-add_action('admin_enqueue_scripts', __NAMESPACE__ . '\\assets_admin', 100);
+// add_action('admin_enqueue_scripts', __NAMESPACE__ . '\\assets_admin', 100);

@@ -1,6 +1,7 @@
 .comment-list {
   @extend .list-unstyled;
   article {
+     @extend .clearfix;
      .comment-meta {
         padding-left: 90px;
         position: relative;
@@ -34,6 +35,7 @@
      }
      .reply {
         margin-top: 1rem;
+        float: none;
         @include media-breakpoint-up(sm) {
            padding-left: 90px;
         }
@@ -54,8 +56,8 @@
     }
      h3 {
         @extend .clearfix;
-        font-size: 1rem!important;
         small {
+           font-size: 1rem;
            float: right;
         }
      }

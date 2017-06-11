@@ -18,21 +18,48 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
+
+        // matchHeight
         $('.matchHeight, ul.products').each(function() {
           $(this).find('.matchItem, .woocommerce-LoopProduct-link').matchHeight();
         });
+
+        // jssocials
         $('.sharebuttons').jsSocials({
           shares: ['facebook','twitter','googleplus','pinterest','email'],
           shareIn: 'popup'
         });
+
+        // flexnav
         $('.flexnav').data('breakpoint','991').flexNav({
           calcItemWidths: true
         });
+
+        // jquery.stellar
         $.stellar({
           horizontalScrolling: false,
           responsive: false,
         });
+
+        // jquery.localScroll
         $('.pagetoscroll, .woocommerce-product-rating').localScroll({ offset: -120, easing:'easeInOutExpo' });
+
+        // gmap3
+        $('.gmap').each(function(){
+          var elem = $(this);
+          elem.gmap3({
+            center: [elem.data('lat'), elem.data('lng')],
+            zoom: elem.data('zoom'),
+            scrollwheel: false,
+            streetViewControl: false,
+            navigationControl: false
+          }).marker([
+            {position:[elem.data('lat'), elem.data('lng')], icon: new google.maps.MarkerImage( elem.data('icon'), new google.maps.Size(64, 64), null, null, new google.maps.Size(64, 64) )}
+            //{position:[elem.data('lat'), elem.data('lng')]}
+          ]);
+        });
+
+        
         $(window).scroll(function() {
             if ( $(window).scrollTop() > 160 ) {
                 $('.banner-sticky').addClass('sticked');

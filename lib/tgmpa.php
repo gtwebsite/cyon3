@@ -71,18 +71,8 @@ function register_required_plugins() {
 			'required'  => true,
 		),
     array(
-			'name'      => 'Black Studio TinyMCE Widget',
-			'slug'      => 'black-studio-tinymce-widget',
-			'required'  => false,
-		),
-    array(
 			'name'      => 'Duplicate Post',
 			'slug'      => 'duplicate-post',
-			'required'  => false,
-		),
-    array(
-			'name'      => 'Image Widget',
-			'slug'      => 'image-widget',
 			'required'  => false,
 		),
     array(

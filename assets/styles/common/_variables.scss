@@ -10,6 +10,26 @@ $container-max-widths: (
    xl: 1170px
 );
 
+// Small Grid
+$grid-gutter-width-sm:           10px;
+$grid-gutter-widths-sm: (
+   xs: $grid-gutter-width-sm,
+   sm: $grid-gutter-width-sm,
+   md: $grid-gutter-width-sm,
+   lg: $grid-gutter-width-sm,
+   xl: $grid-gutter-width-sm
+);
+
+$grid-gutter-width-xs:           2px;
+$grid-gutter-widths-xs: (
+   xs: $grid-gutter-width-xs,
+   sm: $grid-gutter-width-xs,
+   md: $grid-gutter-width-xs,
+   lg: $grid-gutter-width-xs,
+   xl: $grid-gutter-width-xs
+);
+
+
 // Colors
 $white:								   #fff;
 $black:								   #000;
