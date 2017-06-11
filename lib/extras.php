@@ -252,7 +252,7 @@ function instagram_func( $atts ) {
 		if( is_array( $feed ) ) {
 			$result .= '<ul class="instagram-feed list-unstyled row-sm">';
 			foreach ( $feed as $f ) {
-				$result .= '<li class="col-md-3 col-sm-4 col-xs-6"><a href="'.$f['url'].'" data-fancybox="instagram-fancybox"><img src="'.$f['url'].'" /></a></li>';
+				$result .= '<li class="col-3"><a href="'.$f['url'].'" data-fancybox="instagram-fancybox"><img src="'.$f['url'].'" /></a></li>';
 			}
 			$result .= '</ul>';
 		}else{
