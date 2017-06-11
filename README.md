@@ -5,6 +5,7 @@
 * Bootstrap 4 - Alpha 6: [https://v4-alpha.getbootstrap.com/](https://v4-alpha.getbootstrap.com/)
 * Family.SCSS 1.0.8: [https://lukyvj.github.io/family.scss/](https://lukyvj.github.io/family.scss/)
 * FontAwesome 4.7.0: [http://fontawesome.io/icons/](http://fontawesome.io/icons/)
+* Gmap3 7.2: [http://gmap3.net/](http://gmap3.net/)
 
 ## Usage
 * Navigate to themes/ and open git bash
@@ -22,6 +23,8 @@
 
 ## Available Shortcodes
 * Fontawesome icon: `[fa icon="" link=""]`
+* Gmap3: `[map lat="" lng="" zoom="" height="" icon=""]` - create ACF field global `google_map_key` and [enter api key](https://developers.google.com/maps/documentation/javascript/get-api-key)
+* Instagram: `[instagram token="" limit=""]` - get [token here](http://instagram.pixelunion.net/)
 
 ## Plugins Required
 * Bootstrap 3 Shortcodes
@@ -29,12 +32,10 @@
 
 ## Plugins Recommended
 * Duplicate Post
-* Image Widget
 * Regenerate Thumbnails
 * Advanced Custom Fields
 * Widget CSS Classes
 * Widget Visibility Without Jetpack
-* Black Studio TinyMCE Widget
 * Better Search Replace
 
 ## Plugins Supported

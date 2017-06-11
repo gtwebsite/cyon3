@@ -96,21 +96,6 @@ function remove_empty_p( $content ){
 add_filter( 'widget_text', 'do_shortcode', 11);
 
 
-// Map shortcode [map lat="" lng="" xclass=""]
-function map_func( $atts ) {
-  $atts = shortcode_atts( array(
-    'lat'       => '',
-    'lng'       => '',
-    'zoom'      => '16',
-    'height'    => '600px',
-    'icon'      => get_bloginfo('stylesheet_directory') . '/dist/images/map-bubble.png',
-    'xclass'    => ''
-  ), $atts );
-  $html = '<div class="gmap '.$atts['xclass'].'" data-lat="'.$atts['lat'].'" data-lng="'.$atts['lng'].'" data-zoom="'.$atts['zoom'].'" data-icon="'.$atts['icon'].'" style="height: '.$atts['height'].'"></div>';
-  return $html;
-}
-add_shortcode( 'map', __NAMESPACE__ . '\\map_func' );
-
 /****** End Common ******/
 
 
@@ -202,6 +187,23 @@ if ( function_exists ( 'WC' ) ) {
 
 }
 /****** End Woocommerce ******/
+
+
+/****** Gmap ******/
+function map_func( $atts ) {
+  $atts = shortcode_atts( array(
+    'lat'       => '',
+    'lng'       => '',
+    'zoom'      => '16',
+    'height'    => '600px',
+    'icon'      => get_bloginfo('stylesheet_directory') . '/dist/images/map-bubble.png',
+    'xclass'    => ''
+  ), $atts );
+  $html = '<div class="gmap '.$atts['xclass'].'" data-lat="'.$atts['lat'].'" data-lng="'.$atts['lng'].'" data-zoom="'.$atts['zoom'].'" data-icon="'.$atts['icon'].'" style="height: '.$atts['height'].'"></div>';
+  return $html;
+}
+add_shortcode( 'map', __NAMESPACE__ . '\\map_func' );
+
 
 /****** Start Instagram ******/
 function get_instagram_feeds($access_token, $count) {
