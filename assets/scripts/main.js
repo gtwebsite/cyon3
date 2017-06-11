@@ -59,7 +59,20 @@
           ]);
         });
 
-        
+        // Swiper
+        $('.swiper-slide').each(function(){
+          var elem = $(this);
+          elem.find('.swiper-container').swiper({
+            autoplay: 10000,
+            loop: true,
+            preventClicks: false,
+            pagination: elem.find('.swiper-pagination'),
+            paginationClickable: true,
+            nextButton: elem.find('.swiper-button-next'),
+            prevButton: elem.find('.swiper-button-prev'),
+          });
+        });
+
         $(window).scroll(function() {
             if ( $(window).scrollTop() > 160 ) {
                 $('.banner-sticky').addClass('sticked');
