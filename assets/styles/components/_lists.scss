@@ -1,0 +1,43 @@
+.tweet-list {
+   .card-link {
+      float: right;
+      margin-left: 5px;
+   }
+   img {
+      float: left;
+      margin-right: 5px;
+   }
+   p {
+      font-size: $font-size-sm;
+   }
+   .card-tweet-head {
+      @extend .clearfix;
+      color: inherit;
+      display: block;
+      &:hover, &:active, &:focus {
+         text-decoration: none;
+      }
+      h6 {
+         font-size:  1rem;
+         font-weight: 300;
+         line-height: 1.4;
+      }
+      .meta {
+         color: #aaa;
+         font-size: $font-size-xs;
+      }
+   }
+   .card-tweet-foot {
+      font-size: $font-size-sm;
+      a {
+         color: #aaa;
+         span {
+            padding-left: 5px;
+         }
+         &:hover, &:active, &:focus {
+            color: $brand-primary;
+            text-decoration: none;
+         }
+      }
+   }
+}

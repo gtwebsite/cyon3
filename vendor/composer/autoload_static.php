@@ -24,11 +24,28 @@ class ComposerStaticInitf288047d0ec4dfa344b372d67b06b671
         ),
     );
 
+    public static $classMap = array (
+        'Twitter' => __DIR__ . '/..' . '/dg/twitter-php/src/Twitter.php',
+        'TwitterException' => __DIR__ . '/..' . '/dg/twitter-php/src/Twitter.php',
+        'Twitter_OAuthConsumer' => __DIR__ . '/..' . '/dg/twitter-php/src/OAuth.php',
+        'Twitter_OAuthDataStore' => __DIR__ . '/..' . '/dg/twitter-php/src/OAuth.php',
+        'Twitter_OAuthException' => __DIR__ . '/..' . '/dg/twitter-php/src/OAuth.php',
+        'Twitter_OAuthRequest' => __DIR__ . '/..' . '/dg/twitter-php/src/OAuth.php',
+        'Twitter_OAuthServer' => __DIR__ . '/..' . '/dg/twitter-php/src/OAuth.php',
+        'Twitter_OAuthSignatureMethod' => __DIR__ . '/..' . '/dg/twitter-php/src/OAuth.php',
+        'Twitter_OAuthSignatureMethod_HMAC_SHA1' => __DIR__ . '/..' . '/dg/twitter-php/src/OAuth.php',
+        'Twitter_OAuthSignatureMethod_PLAINTEXT' => __DIR__ . '/..' . '/dg/twitter-php/src/OAuth.php',
+        'Twitter_OAuthSignatureMethod_RSA_SHA1' => __DIR__ . '/..' . '/dg/twitter-php/src/OAuth.php',
+        'Twitter_OAuthToken' => __DIR__ . '/..' . '/dg/twitter-php/src/OAuth.php',
+        'Twitter_OAuthUtil' => __DIR__ . '/..' . '/dg/twitter-php/src/OAuth.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitf288047d0ec4dfa344b372d67b06b671::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitf288047d0ec4dfa344b372d67b06b671::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitf288047d0ec4dfa344b372d67b06b671::$classMap;
 
         }, null, ClassLoader::class);
     }

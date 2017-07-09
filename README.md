@@ -12,6 +12,7 @@
 * Run `git clone https://github.com/gtwebsite/cyon3.git foldername`
 * Run `npm install`
 * Run `bower install`
+* Run `composer update` and `composer install`
 * Change assets/manifest.json devUrl:
 
 ## Notes

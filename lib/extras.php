@@ -262,4 +262,64 @@ function instagram_func( $atts ) {
 }
 add_shortcode( 'instagram', __NAMESPACE__ . '\\instagram_func' );
 
-/****** End Instagram ******/
+/****** Start Twitter ******/
+function twitter_search_func( $atts ) {
+  $a = shortcode_atts( array(
+      'consumer_key' => '',
+      'consumer_secret' => '',
+      'access_token' => '',
+      'access_token_secret' => '',
+      'search' => '',
+      'limit' => '4',
+  ), $atts );
+  $twitter = new \Twitter( $a['consumer_key'], $a['consumer_secret'], $a['access_token'], $a['access_token_secret'] );
+
+  try {
+    $results = $twitter->search( array( 'q' => $a['search'], 'count' => $a['limit'], 'lang' => 'en', 'result_type' => 'popular' ) );
+  } catch (TwitterException $e) {
+    echo $e->getMessage();
+  }
+
+  $result = '';
+  if( $results ) {
+    $result .= '<div class="tweet-list row row-sm row-centered matchHeight">';
+    foreach ($results as $feed) {
+      $retweet_count = '';
+      if( $feed->retweet_count > 0 ) {
+        $retweet_count = ' ' . $feed->retweet_count;
+      }
+      $favorite_count = '';
+      if( $feed->favorite_count > 0 ) {
+        $favorite_count = ' ' . $feed->favorite_count;
+      }
+      $result .= '
+      <div class="col-sm-6 col-lg-3">
+        <div class="card card-tweet">
+          <div class="card-block">
+            <div class="matchItem">
+              <div class="clearfix mb-2">
+                <a href="https://twitter.com/' . $feed->user->screen_name . '" target="_blank" class="card-link"><i class="fa fa-twitter"></i></a>
+                <a class="card-tweet-head" href="https://twitter.com/' . $feed->user->screen_name . '" target="_blank">
+                  <img src="' . $feed->user->profile_image_url_https . '" alt="" />
+                  <h6 class="mb-0">' . $feed->user->name . '</h6>
+                  <div class="meta">@' . $feed->user->screen_name . '</div>
+                </a>
+              </div>
+              <p>' . make_clickable($feed->text) . '</p>
+            </div>
+            <div class="card-tweet-foot d-flex mt-2">
+              <a href="https://twitter.com/' . $feed->user->screen_name . '/status/' . $feed->id . '" title="' . __('Reply','cyon') . '" data-toggle="tooltip" target="blank"><i class="fa fa-reply"></i></a>
+              <a href="https://twitter.com/intent/retweet?tweet_id=' . $feed->id . '" title="' . __('Retweet','cyon') . '" data-toggle="tooltip" target="blank" class="ml-2"><i class="fa fa-retweet"></i>'.$retweet_count.'</a>
+              <a href="https://twitter.com/' . $feed->user->screen_name . '/status/' . $feed->id . '" title="' . __('Like','cyon') . '" data-toggle="tooltip" target="blank" class="ml-2"><i class="fa fa-heart-o"></i>'.$favorite_count.'</a>
+              <a href="https://twitter.com/' . $feed->user->screen_name . '/status/' . $feed->id . '" title="' . __('Info','cyon') . '" data-toggle="tooltip" target="blank" class="ml-auto"><i class="fa fa-info-circle"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>';
+    }
+    $result .= '</div>';
+  }
+  return $result;
+}
+add_shortcode( 'twitter_search', __NAMESPACE__ . '\\twitter_search_func' );
+/****** End Twitter ******/

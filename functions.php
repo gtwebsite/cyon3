@@ -17,6 +17,7 @@ $sage_includes = [
   'lib/wrapper.php',      // Theme wrapper class
   // 'lib/customizer.php',   // Theme customizer
   'lib/tgmpa.php',        // Plugin Activation
+  'vendor/autoload.php'   // Load vendors
 ];
 
 foreach ($sage_includes as $file) {
