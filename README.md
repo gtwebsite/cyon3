@@ -6,14 +6,16 @@
 * Family.SCSS 1.0.8: [https://lukyvj.github.io/family.scss/](https://lukyvj.github.io/family.scss/)
 * FontAwesome 4.7.0: [http://fontawesome.io/icons/](http://fontawesome.io/icons/)
 * Gmap3 7.2: [http://gmap3.net/](http://gmap3.net/)
+* TGM Plugin Activation [http://tgmpluginactivation.com/](http://tgmpluginactivation.com/)
+* Twitter Php [https://github.com/dg/twitter-php](https://github.com/dg/twitter-php)
 
 ## Usage
 * Navigate to themes/ and open git bash
 * Run `git clone https://github.com/gtwebsite/cyon3.git foldername`
 * Run `npm install`
 * Run `bower install`
-* Run `composer update` and `composer install`
-* Change assets/manifest.json devUrl:
+* Run `composer install`
+* Update assets/manifest.json devUrl:
 
 ## Notes
 * All text in PHP should be using text domain `cyon`
@@ -26,6 +28,7 @@
 * Fontawesome icon: `[fa icon="" link=""]`
 * Gmap3: `[map lat="" lng="" zoom="" height="" icon=""]` - create ACF field global `google_map_key` and [enter api key](https://developers.google.com/maps/documentation/javascript/get-api-key)
 * Instagram: `[instagram token="" limit=""]` - get [token here](http://instagram.pixelunion.net/)
+* Twitter Search: `[twitter_search consumer_key="" consumer_secret="" access_token="" access_token_secret="" search="" limit=""]`
 
 ## Plugins Required
 * Bootstrap 3 Shortcodes

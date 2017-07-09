@@ -45,7 +45,6 @@
         $('.pagetoscroll, .woocommerce-product-rating').localScroll({ offset: -120, easing:'easeInOutExpo' });
 
         // gmap3
-        /*
         $('.gmap').each(function(){
           var elem = $(this);
           elem.gmap3({
@@ -58,7 +57,6 @@
             {position:[elem.data('lat'), elem.data('lng')], icon: new google.maps.MarkerImage( elem.data('icon'), new google.maps.Size(64, 64), null, null, new google.maps.Size(64, 64) )}
           ]);
         });
-        */
 
         // Swiper
         $('.swiper-slide').each(function(){
