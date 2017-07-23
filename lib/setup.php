@@ -141,8 +141,10 @@ function assets() {
     wp_enqueue_script('comment-reply');
   }
 
-  if( get_field('google_map_key','option') ) {
-    wp_enqueue_script('gmap3', 'https://maps.googleapis.com/maps/api/js?key=' . get_field('google_map_key','option'), ['jquery'], null, true);
+  if( function_exists('get_field') ) {
+    if( get_field('google_map_key','option') ) {
+      wp_enqueue_script('gmap3', 'https://maps.googleapis.com/maps/api/js?key=' . get_field('google_map_key','option'), ['jquery'], null, true);
+    }
   }
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
 }

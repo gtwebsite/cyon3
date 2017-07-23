@@ -120,10 +120,23 @@ if ( class_exists( 'GFCommon' ) ) {
   add_filter( 'gform_enable_credit_card_field', '__return_true', 11 );
 
   // Replace submit button
+  add_filter( 'gform_next_button', __NAMESPACE__ . '\\form_submit_button', 10, 2 );
+  add_filter( 'gform_previous_button', __NAMESPACE__ . '\\form_submit_button', 10, 2 );
   add_filter( 'gform_submit_button', __NAMESPACE__ . '\\form_submit_button', 10, 2 );
   function form_submit_button( $button, $form ) {
     if( !is_admin() ){
-      return '<button class="btn btn-primary" id="gform_submit_button_'.$form['id'].'">'.$form['button']['text'].'</button>';
+      $dom = new \DOMDocument();
+      $dom->loadHTML( $button );
+      $input = $dom->getElementsByTagName( 'input' )->item(0);
+      $new_button = $dom->createElement( 'button' );
+      $new_button->appendChild( $dom->createTextNode( $input->getAttribute( 'value' ) ) );
+      $input->removeAttribute( 'value' );
+      foreach( $input->attributes as $attribute ) {
+          $new_button->setAttribute( $attribute->name, $attribute->value );
+      }
+      $input->parentNode->replaceChild( $new_button, $input );
+
+      return $dom->saveHtml( $new_button );
     }
   }
 
@@ -134,6 +147,14 @@ if ( class_exists( 'GFCommon' ) ) {
       return '<div class="validation_error alert alert-danger">' . __( 'There was a problem with your submission.', 'gravityforms' ) . ' ' . __( 'Errors have been highlighted below.', 'gravityforms' ) . '</div>';
     }
   }
+
+  // Replace spinner
+  /*
+  add_filter( 'gform_ajax_spinner_url', __NAMESPACE__ . '\\custom_spinner_image', 10, 2 );
+  function custom_spinner_image( $image_src, $form ){
+    return get_bloginfo('stylesheet_directory') . '/dist/images/loader-default.gif';
+  }
+  */
 
 }
 /****** End Gform ******/
