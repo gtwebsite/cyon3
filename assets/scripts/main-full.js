@@ -27,10 +27,24 @@
           $(this).find('.matchItem, .woocommerce-LoopProduct-link').matchHeight();
         });
 
+        // jssocials
+        $('.sharebuttons').jsSocials({
+          shares: ['facebook','twitter','googleplus','pinterest','email'],
+          shareIn: 'popup'
+        });
+
         // flexnav
         $('.flexnav').data('breakpoint','991').flexNav({
           calcItemWidths: true
         });
+
+        // jquery.stellar
+        if ( !md.mobile() ) {
+          $.stellar({
+            horizontalScrolling: false,
+            responsive: false,
+          });
+        }
 
         // jquery.localScroll
         var offset = 0;
@@ -38,6 +52,34 @@
           offset = -70;
         }
         $('.pagetoscroll, .woocommerce-product-rating').localScroll({ offset: offset, easing:'easeInOutExpo' });
+
+        // gmap3
+        $('.gmap').each(function(){
+          var elem = $(this);
+          elem.gmap3({
+            center: [elem.data('lat'), elem.data('lng')],
+            zoom: elem.data('zoom'),
+            scrollwheel: false,
+            streetViewControl: false,
+            navigationControl: false
+          }).marker([
+            {position:[elem.data('lat'), elem.data('lng')], icon: new google.maps.MarkerImage( elem.data('icon'), new google.maps.Size(64, 64), null, null, new google.maps.Size(64, 64) )}
+          ]);
+        });
+
+        // Swiper
+        $('.swiper-slide').each(function(){
+          var elem = $(this);
+          elem.find('.swiper-container').swiper({
+            autoplay: 10000,
+            loop: true,
+            preventClicks: false,
+            pagination: elem.find('.swiper-pagination'),
+            paginationClickable: true,
+            nextButton: elem.find('.swiper-button-next'),
+            prevButton: elem.find('.swiper-button-prev'),
+          });
+        });
 
         $(window).scroll(function() {
             if ( $(window).scrollTop() > 160 ) {
