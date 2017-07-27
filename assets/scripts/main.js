@@ -10,9 +10,6 @@
  * always reference jQuery with $, even when in .noConflict() mode.
  * ======================================================================== */
 
- // Mobile Detect
- var md = new MobileDetect(window.navigator.userAgent);
-
 (function($) {
   // Use this variable to set up the common and page specific functions. If you
   // rename this variable, you will also need to rename the namespace below.
@@ -33,17 +30,18 @@
         });
 
         // jquery.localScroll
-        var offset = 0;
-        if ( !md.mobile() ) {
-          offset = -70;
-        }
-        $('.pagetoscroll, .woocommerce-product-rating').localScroll({ offset: offset, easing:'easeInOutExpo' });
+        $('.pagetoscroll, .woocommerce-product-rating').localScroll({ offset: -70, easing:'easeInOutExpo' });
 
         $(window).scroll(function() {
             if ( $(window).scrollTop() > 160 ) {
                 $('.banner-sticky').addClass('sticked');
             } else {
                 $('.banner-sticky').removeClass('sticked');
+            }
+            if (jQuery(window).scrollTop() > jQuery(window).height() ) {
+                jQuery('.backtotop').addClass('active');
+            } else {
+                jQuery('.backtotop').removeClass('active');
             }
         });
       },

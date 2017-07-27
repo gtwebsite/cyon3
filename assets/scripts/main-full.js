@@ -87,6 +87,11 @@
             } else {
                 $('.banner-sticky').removeClass('sticked');
             }
+            if (jQuery(window).scrollTop() > jQuery(window).height() ) {
+                jQuery('.backtotop').addClass('active');
+            } else {
+                jQuery('.backtotop').removeClass('active');
+            }
         });
       },
       finalize: function() {

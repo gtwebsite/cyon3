@@ -21,11 +21,12 @@
 		height: $menu-height;
 		line-height: $menu-height;
 		padding: 0 .625rem;
-		display: inline-block;
 		position: absolute;
 		color: inherit;
 		border-bottom: 0;
 		background-color: transparent;
+		top: 0;
+		right: 0;
 		&.navbar-toggler-right {
 			right: 0;
 		}

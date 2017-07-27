@@ -19,3 +19,4 @@
 		</div>
 	</div>
 </footer>
+<div class="backtotop pagetoscroll"><a href="#verytop"><i class="fa fa-angle-up"></i></a></div>
