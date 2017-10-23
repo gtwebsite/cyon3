@@ -17,6 +17,9 @@ $sage_includes = [
   'lib/wrapper.php',      // Theme wrapper class
   // 'lib/customizer.php',   // Theme customizer
   'lib/class-wp-bootstrap-navwalker.php', // Bootstrap nav
+  'lib/woocommerce.php',  // Woocommerce overrides
+  'lib/gform.php',        // Gform overrides
+  'lib/shortcodes.php',   // Common shortcodes
   'lib/tgmpa.php',        // Plugin Activation
   'vendor/autoload.php'   // Load vendors
 ];

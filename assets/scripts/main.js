@@ -28,6 +28,7 @@
         if ( window.location.hash ) { scroll(0,0); }
         setTimeout( function() { scroll(0,0); }, 1);
 
+        var offset = 0;
         $('.pagetoscroll, .woocommerce-product-rating').localScroll({ offset: offset, easing:'easeInOutExpo' });
 
         // 1 Page site - Bootstrap scrollspy
