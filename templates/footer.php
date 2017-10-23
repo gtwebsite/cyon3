@@ -2,7 +2,7 @@
 	<?php if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
 	<div class="buckets">
 	  <div class="container">
-	  	<aside class="widgets matchHeight">
+	  	<aside class="widgets row">
 	    	<?php dynamic_sidebar('sidebar-footer'); ?>
 	    </aside>
 	  </div>

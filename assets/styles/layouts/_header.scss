@@ -2,17 +2,19 @@
 	z-index: 9;
 	position: relative;
 	background-color: $white;
+	border-bottom: 1px solid $gray-200;
 	.navbar-brand {
 		height: $menu-height;
 		line-height: $menu-height;
 		padding: 0;
 	}
-	.primary-nav {
-		padding: 1rem 0;
-	}
 	.secondary-nav {
-		padding: 1rem 0;
-		border-bottom: 1px solid $gray-lighter;
+		padding-top: $spacer;
+		padding-bottom: $spacer;
+	}
+	.primary-nav {
+		padding-top: $spacer;
+		padding-bottom: $spacer;
 	}
 	.navbar {
 		padding: 0;
@@ -34,33 +36,6 @@
 			display: none;
 		}
 	}
-	.navbar-toggleable-md {
-		.navbar-nav {
-			> li {
-				> a {
-					padding: 0 1rem;
-				}
-			}
-		}
-	}
-	.navbar-nav {
-		> li {
-			margin-left: 2px;
-			> a {
-				height: $menu-height;
-            line-height: $menu-height;
-			}
-			&.action {
-				margin-left: 2rem;
-				> a {
-					@extend .btn;
-					@extend .btn-primary;
-					line-height: ( $menu-height - 1 );
-					padding: 0 1rem;
-				}
-			}
-		}
-	}
 	&.banner-sticky {
 		opacity: 0;
 		top: -100px;
@@ -68,6 +43,7 @@
 		width: 100%;
 		position: fixed;
 		transition: all ease-in-out .6s;
+		box-shadow: 0 0 10px rgba(0,0,0,.1);
 		&.sticked {
 			opacity: 1;
 			top: 0;

@@ -1,9 +1,8 @@
 # CYON 3
 
 ## Vendors
-* Sage 8.5.0: [https://github.com/roots/sage](https://github.com/roots/sage)
-* Bootstrap 4 - Alpha 6: [https://v4-alpha.getbootstrap.com/](https://v4-alpha.getbootstrap.com/)
-* Family.SCSS 1.0.8: [https://lukyvj.github.io/family.scss/](https://lukyvj.github.io/family.scss/)
+* Sage 8.5.2: [https://github.com/roots/sage](https://github.com/roots/sage)
+* Bootstrap 4 - Beta: [https://getbootstrap.com/](https://getbootstrap.com/)
 * FontAwesome 4.7.0: [http://fontawesome.io/icons/](http://fontawesome.io/icons/)
 * Gmap3 7.2: [http://gmap3.net/](http://gmap3.net/)
 * TGM Plugin Activation [http://tgmpluginactivation.com/](http://tgmpluginactivation.com/)

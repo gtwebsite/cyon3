@@ -21,16 +21,26 @@ use Roots\Sage\Wrapper;
       get_template_part('templates/header');
     ?>
     <div class="body" role="document">
-      <div class="row">
-        <main class="main">
-          <?php include Wrapper\template_path(); ?>
-        </main>
-        <?php if (Setup\display_sidebar()) : ?>
-          <aside class="sidebar widgets">
-            <?php include Wrapper\sidebar_path(); ?>
-          </aside><!-- /.sidebar -->
-        <?php endif; ?>
+      <?php if (Setup\display_sidebar()) : ?>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <main class="main">
+              <?php include Wrapper\template_path(); ?>
+            </main>
+          </div>
+          <div class="col-lg-4">
+            <aside class="sidebar widgets row pt-0 mt-lg-8">
+              <?php include Wrapper\sidebar_path(); ?>
+            </aside><!-- /.sidebar -->
+          </div>
+        </div>
       </div>
+      <?php else: ?>
+      <main class="main">
+        <?php include Wrapper\template_path(); ?>
+      </main>
+      <?php endif; ?>
     </div>
     <?php
       do_action('get_footer');

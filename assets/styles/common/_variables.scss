@@ -1,6 +1,5 @@
 // Options
 $enable-rounded:                false;
-$enable-transitions:            true;
 
 // Container
 $container-max-widths: (
@@ -11,39 +10,61 @@ $container-max-widths: (
 );
 
 // Small Grid
-$grid-gutter-width-sm:           10px;
-$grid-gutter-widths-sm: (
-  xs: $grid-gutter-width-sm,
-  sm: $grid-gutter-width-sm,
-  md: $grid-gutter-width-sm,
-  lg: $grid-gutter-width-sm,
-  xl: $grid-gutter-width-sm
-);
+$grid-gutter-width-sm:          10px;
+$grid-gutter-width-xs:          2px;
 
-$grid-gutter-width-xs:           2px;
-$grid-gutter-widths-xs: (
-  xs: $grid-gutter-width-xs,
-  sm: $grid-gutter-width-xs,
-  md: $grid-gutter-width-xs,
-  lg: $grid-gutter-width-xs,
-  xl: $grid-gutter-width-xs
-);
-
+// Grays
+$gray-100:                    #f8f9fa;
+$gray-600:                    #868e96;
+$gray-800:                    #343a40;
 
 // Colors
-$white:								   #fff;
-$black:								   #000;
-$body-bg:                        #f9f9f9;
-$brand-primary:                  #0275d8;
-$brand-secondary:                darken($brand-primary, 15%);
+$blue:                        #00a8df;
+$red:                         #dc3545;
+$yellow:                      #ffc107;
+$green:                       #28a745;
+$cyan:                        #17a2b8;
+
+// Theme colors
+$theme-colors: (
+  primary: $blue,
+  secondary: $gray-600,
+  success: $green,
+  info: $cyan,
+  warning: $yellow,
+  danger: $red,
+  light: $gray-100,
+  dark: $gray-800
+);
 
 // Fonts
-$font-family-base:              'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-$headings-font-family:           'Montserrat', $font-family-base;
-$headings-font-weight:           400;
+$font-family-sans-serif:        'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-family-serif:             'Montserrat', 'Georgia', 'Times New Roman';
+$font-family-base:              $font-family-sans-serif;
+$headings-font-family:          $font-family-serif;
+$headings-font-weight:          400;
 
-// Margin / Padding
-$menu-height:                    50px;
-$spacing-1:                      1.563rem;
-$spacing-2:                      4.375rem;
-$spacer:                         $spacing-1;
+// Transition
+$transition-base:               all .3s ease-in-out;
+
+// Spacers
+$spacer:                        1rem;
+$spacers: (
+  0: 0,
+  1: ($spacer * .25),
+  2: ($spacer * .5),
+  3: $spacer,
+  4: ($spacer * 1.5),
+  5: ($spacer * 3),
+  6: ($spacer * 3.75),
+  7: ($spacer * 4.5),
+  8: ($spacer * 5.625),
+  9: ($spacer * 7.5)
+);
+$spacer-1:                      ($spacer * 1.5);
+$spacer-2:                      ($spacer * 3);
+$spacer-3:                      ($spacer * 4.5);
+$spacer-4:                      ($spacer * 5.625);
+
+// Menu
+$menu-height:                   50px;

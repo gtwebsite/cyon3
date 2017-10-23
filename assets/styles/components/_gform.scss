@@ -8,14 +8,7 @@
 			@extend .btn-primary;
 		}
 		select {
-			height: 2.375rem!important;
-			padding: 0 .75rem;
-			-webkit-appearance: none;
-			background-image: url('../images/icon-arrow-down.svg');
-			background-position: 100% 50%;
-			background-repeat: no-repeat;
-			background-size: 1.125rem auto;
-			padding-right: $grid-gutter-width-base;
+			@extend .custom-select;
 		}
 		input.datepicker {
 			background-image: url('../images/icon-calendar.svg');
@@ -60,6 +53,7 @@
 							}
 						}
 					}
+					/*
 					.gfield_radio {
 						> li {
 							@extend .abc-radio;
@@ -74,6 +68,7 @@
 							padding-left: 4px;
 						}
 					}
+					*/
 					.clear-multi {
 						@include make-row();
 						> * {
@@ -107,7 +102,7 @@
 					.ginput_container_fileupload {
 						.gform_fileupload_multifile {
 							@extend .mb-1;
-							border: 5px dashed $gray-lighter;
+							border: 5px dashed $gray-200;
 							padding: 30px 40px;
 						}
 						.validation_message {
@@ -248,12 +243,15 @@
 						@extend .nolabel;
 					}
 					&.gfield_error {
+						/*
 						@extend .has-danger;
+						*/
 						input[type=text], input[type=tel], input[type=email], input[type=number], input[type=password], select, textarea {
-							@extend .form-control-danger;
+							@extend .is-invalid;
 						}
 						.validation_message {
-							@extend .form-control-feedback;
+							@extend .invalid-feedback;
+							display: block;
 						}
 					}
 					&.gclear, .gf_clear {
@@ -280,19 +278,19 @@
 		.gf_progressbar_wrapper {
 			.gf_progressbar_title {
 				@extend h4;
-				margin-bottom: $spacing-1;
+				margin-bottom: $spacer-1;
 			}
 			.gf_progressbar {
 				@extend .progress;
-				margin-bottom: $spacing-1;
+				margin-bottom: $spacer-1;
 				height: 1.8rem;
-				background-color: $gray-lighter;
+				background-color: $gray-200;
 				.gf_progressbar_percentage {
 					@extend .progress-bar;
 					height: 100%;
 					color: $white;
 					line-height: 1.8rem;
-					background-color: $brand-primary;
+					background-color: theme-color('primary');
 					span {
 						text-align: center;
 						display: block;
@@ -333,7 +331,7 @@
 					background-color: $white;
 					z-index: 3;
 					padding: 2px 0;
-					border: 1px solid $gray-lighter;
+					border: 1px solid $gray-200;
 					box-shadow: 0 3px 5px rgba(0,0,0,.05);
 					> li {
 						padding: 2px .75rem;
@@ -341,7 +339,7 @@
 						cursor: pointer;
 						&:hover {
 							color: $white;
-							background-color: $brand-primary;
+							background-color: theme-color('primary');
 							transition: all ease-in-out .2s;
 						}
 					}
@@ -366,7 +364,7 @@
 			margin-right: 10px;
 			cursor: pointer;
 			&:hover {
-				color: $brand-primary;
+				color: theme-color('primary');
 			}
 		}
 		.ui-datepicker-title {
@@ -382,7 +380,7 @@
 		}
 	}
 	table {
-		@extend .card-block;
+		@extend .card-body;
 		@extend .table;
 		@extend .table-striped;
 		margin-bottom: 0;
@@ -393,7 +391,7 @@
 			}
 		}
 		.ui-datepicker-current-day {
-			background-color: $brand-primary;
+			background-color: theme-color('primary');
 			text-align: center;
 			a {
 				color: $white;

@@ -19,19 +19,27 @@
       init: function() {
         // JavaScript to be fired on all pages
 
-        // matchHeight
-        $('.matchHeight, ul.products').each(function() {
-          $(this).find('.matchItem, .woocommerce-LoopProduct-link').matchHeight();
-        });
-
         // flexnav
         $('.flexnav').data('breakpoint','991').flexNav({
           calcItemWidths: true
         });
 
         // jquery.localScroll
-        $('.pagetoscroll, .woocommerce-product-rating').localScroll({ offset: -70, easing:'easeInOutExpo' });
+        if ( window.location.hash ) { scroll(0,0); }
+        setTimeout( function() { scroll(0,0); }, 1);
 
+        $('.pagetoscroll, .woocommerce-product-rating').localScroll({ offset: offset, easing:'easeInOutExpo' });
+
+        // 1 Page site - Bootstrap scrollspy
+        if(window.location.hash) {
+          setTimeout( function() {
+            $('html, body').animate({
+              scrollTop: $(window.location.hash).offset().top + offset + 'px'
+            }, 1000, 'easeInOutExpo');
+          }, 1000);
+        }
+
+        // Sticky scroll menu
         $(window).scroll(function() {
             if ( $(window).scrollTop() > 160 ) {
                 $('.banner-sticky').addClass('sticked');
@@ -44,6 +52,7 @@
                 jQuery('.backtotop').removeClass('active');
             }
         });
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

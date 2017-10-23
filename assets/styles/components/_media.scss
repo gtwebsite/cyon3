@@ -1,0 +1,19 @@
+.iframe {
+  -webkit-overflow-scrolling: touch;
+  border: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 1px;
+  min-width: 100%;
+  *width: 100%;
+  iframe {
+     width: 100%;
+     display: block;
+  }
+}
+
+.swiper-container {
+  .swiper-wrapper {
+     box-sizing: inherit;
+  }
+}

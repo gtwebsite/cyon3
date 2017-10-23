@@ -1,15 +1,15 @@
 .pace {
-   @include media-breakpoint-down(lg) {
-      display: none!important;
-   }
-   .pace-progress {
-      background-color: $brand-primary;
-   }
-   .pace-progress-inner {
-      box-shadow: 0 0 10px $brand-primary, 0 0 5px $brand-primary;
-   }
-   .pace-activity {
-      border-top-color: $brand-primary;
-      border-left-color: $brand-primary;
-   }
+  @include media-breakpoint-down(lg) {
+    display: none!important;
+  }
+  .pace-progress {
+    background-color: theme-color('primary');
+  }
+  .pace-progress-inner {
+    box-shadow: 0 0 10px theme-color('primary'), 0 0 5px theme-color('primary');
+  }
+  .pace-activity {
+    border-top-color: theme-color('primary');
+    border-left-color: theme-color('primary');
+  }
 }

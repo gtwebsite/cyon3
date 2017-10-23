@@ -1,8 +1,21 @@
+.sidebar-primary {
+	.page-header {
+		padding-top: 0;
+		padding-bottom: $spacer-2;
+		background-color: transparent;
+	}
+	.page-section {
+		padding-top: 0;
+		padding-bottom: 0;	
+	}
+	.main, .sidebar {
+		padding-top: $spacer-4;
+		padding-bottom: $spacer-4;	
+	}
+}
+
 .widgets {
 	.widget {
-		h4 {
-			text-transform: uppercase;
-		}
 		> ul {
 			@extend .list-unstyled;
 			> li {
@@ -29,7 +42,7 @@
 	&.sidebar {
 		.widget {
 			&+.widget {
-				margin-top: $spacing-2;
+				margin-top: $spacer-3;
 			}
 		}
 	}

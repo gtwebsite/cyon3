@@ -23,19 +23,19 @@
          line-height: 1.4;
       }
       .meta {
-         color: #aaa;
-         font-size: $font-size-xs;
+         color: $gray-300;
+         font-size: $font-size-sm;
       }
    }
    .card-tweet-foot {
       font-size: $font-size-sm;
       a {
-         color: #aaa;
+         color: $gray-300;
          span {
             padding-left: 5px;
          }
          &:hover, &:active, &:focus {
-            color: $brand-primary;
+            color: theme-color('primary');
             text-decoration: none;
          }
       }

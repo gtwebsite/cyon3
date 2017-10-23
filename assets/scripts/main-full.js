@@ -10,8 +10,19 @@
  * always reference jQuery with $, even when in .noConflict() mode.
  * ======================================================================== */
 
- // Mobile Detect
- var md = new MobileDetect(window.navigator.userAgent);
+// Mobile Detect
+var md = new MobileDetect(window.navigator.userAgent);
+var offset = 0;
+if ( !md.mobile() ) {
+  offset = -120;
+}
+
+// WOW animation
+var wow = new WOW({
+  offset: 100,
+  mobile: false
+});
+wow.init();
 
 (function($) {
   // Use this variable to set up the common and page specific functions. If you
@@ -21,6 +32,11 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
+
+        // flexnav
+        $('.flexnav').data('breakpoint','991').flexNav({
+          calcItemWidths: true
+        });
 
         // matchHeight
         $('.matchHeight, ul.products').each(function() {
@@ -33,13 +49,8 @@
           shareIn: 'popup'
         });
 
-        // flexnav
-        $('.flexnav').data('breakpoint','991').flexNav({
-          calcItemWidths: true
-        });
-
-        // jquery.stellar
         if ( !md.mobile() ) {
+          // jquery.stellar only works on desktop
           $.stellar({
             horizontalScrolling: false,
             responsive: false,
@@ -47,11 +58,19 @@
         }
 
         // jquery.localScroll
-        var offset = 0;
-        if ( !md.mobile() ) {
-          offset = -70;
-        }
+        if ( window.location.hash ) { scroll(0,0); }
+        setTimeout( function() { scroll(0,0); }, 1);
+
         $('.pagetoscroll, .woocommerce-product-rating').localScroll({ offset: offset, easing:'easeInOutExpo' });
+
+        // 1 Page site - Bootstrap scrollspy
+        if(window.location.hash) {
+          setTimeout( function() {
+            $('html, body').animate({
+              scrollTop: $(window.location.hash).offset().top + offset + 'px'
+            }, 1000, 'easeInOutExpo');
+          }, 1000);
+        }
 
         // gmap3
         $('.gmap').each(function(){
@@ -68,19 +87,32 @@
         });
 
         // Swiper
-        $('.swiper-slide').each(function(){
+        var slideSwiper = [];
+        $('.swiper-slide').each(function(index){
           var elem = $(this);
-          elem.find('.swiper-container').swiper({
-            autoplay: 10000,
+          gallerySwiper[index] = new Swiper( elem.find('.swiper-container'), {
+            autoplay: {
+              delay: 8000,
+              disableOnInteraction: false,
+            },
             loop: true,
-            preventClicks: false,
-            pagination: elem.find('.swiper-pagination'),
-            paginationClickable: true,
-            nextButton: elem.find('.swiper-button-next'),
-            prevButton: elem.find('.swiper-button-prev'),
+            preventClicks: false
           });
         });
 
+        // Isotope with packery
+        var $grid = $('.grid').isotope({
+          itemSelector: '.grid-item',
+          layoutMode: 'packery',
+          stagger: 30
+        });
+
+        // Relayout isotope when images are loaded
+        $grid.imagesLoaded( function() {
+          $grid.isotope('layout');
+        });
+
+        // Sticky scroll menu
         $(window).scroll(function() {
             if ( $(window).scrollTop() > 160 ) {
                 $('.banner-sticky').addClass('sticked');
@@ -93,6 +125,7 @@
                 jQuery('.backtotop').removeClass('active');
             }
         });
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

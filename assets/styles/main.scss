@@ -4,27 +4,32 @@
 // bower:scss
 @import "../../bower_components/bootstrap/scss/bootstrap.scss";
 @import "../../bower_components/font-awesome/scss/font-awesome.scss";
-@import "../../bower_components/family.scss/source/src/_family.scss";
 @import "../../bower_components/flexnav/sass/flexnav.scss";
 // endbower
 
 @import "common/global";
-@import "components/nav";
-@import "components/buttons";
-@import "components/comments";
-@import "components/forms";
-@import "components/grid";
 @import "components/wp-classes";
-@import "components/checkboxes";
-@import "components/fancybox";
-@import "components/gform";
+@import "components/grid";
+@import "components/buttons";
+@import "components/forms";
+@import "components/nav";
+@import "components/comments";
 @import "components/pace";
-@import "components/woocommerce";
-@import "components/flexi-cards";
 @import "components/lists";
+@import "components/flexnav";
+@import "components/media";
+@import "components/flexi-cards";
 @import "layouts/header";
-@import "layouts/sidebar";
 @import "layouts/footer";
+@import "layouts/sidebar";
 @import "layouts/pages";
 @import "layouts/posts";
+@import "components/woo";
+@import "components/gform";
 @import "layouts/tinymce";
+/*
+
+@import "components/checkboxes";
+@import "components/gform";
+
+*/

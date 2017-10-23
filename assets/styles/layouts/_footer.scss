@@ -1,37 +1,21 @@
 .content-info {
 	.buckets {
-		padding-top: $spacing-2;
-		padding-bottom: $spacing-2;
-		background-color: $gray-lighter;
-		aside {
-			@include make-row();
-			> * {
-				@include make-col-ready();
-				margin-top: $spacing-2;
-				@include first(1) {
-					margin-top: 0;
-				}
-				@include media-breakpoint-between(sm,md) {
-					@include make-col(6);
-					@include each(3) {
-						clear: both;
-					}
-					@include first(2) {
-						margin-top: 0;
-					}
-				}
-				@include media-breakpoint-up(lg) {
-					@include make-col(3);
-					margin-top: 0;
-				}
+		padding-top: $spacer-3;
+		padding-bottom: $spacer-3;
+		background-color: $gray-100;
+		@include media-breakpoint-down(md) {
+			padding-bottom: $spacer-1;
+		}
+		.widget {
+			@include media-breakpoint-down(md) {
+				margin-bottom: $spacer-2;
 			}
 		}
 	}
 	.footer {
-		@extend .dark;
-		padding-top: $spacing-1;
-		padding-bottom: $spacing-1;
-		background-color: $gray-light;
+		padding-top: $spacer-1;
+		padding-bottom: $spacer-1;
+		background-color: $gray-200;
 		.copyright {
 			display: inline-block;
 		}
@@ -52,7 +36,7 @@
 	visibility: hidden;
 	display: block;
 	position: fixed;
-	transition: all ease-in-out .3s;
+	@include transition();
 	@include media-breakpoint-down(xs) {
 		right: 0;
 	}
@@ -64,14 +48,14 @@
 		text-align: center;
 		display: block;
 		color: $white;
-		background-color: $brand-primary;
+		background-color: theme-color('primary');
 		@include media-breakpoint-down(xs) {
 			border-radius: 0;
 			border-top-left-radius: 5px;
 		}
 		&:hover {
 		  color: $white;
-		  background-color: darken( $brand-primary, 20% );
+		  background-color: darken( theme-color('primary'), 20% );
 		}
 	}
 	&.active {

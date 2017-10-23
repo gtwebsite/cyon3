@@ -1,0 +1,72 @@
+.flexnav {
+  @media (min-width: 800px) {
+     li {
+        float: none;
+        background-color: transparent;
+        a {
+           border-left: 0;
+        }
+        ul {
+           position: static;
+           li {
+              > ul {
+                 margin-left: 0;
+              }
+           }
+        }
+     }
+     &.opacity {
+        opacity: 0;
+     }
+     &.flexnav-show {
+        opacity: 1;
+     }
+  }
+  .touch-button {
+     display: block;
+     height: $menu-height;
+     width: $menu-height;
+     background-color: transparent;
+     &:before {
+        content: '\f107';
+        font-family: 'FontAwesome';
+        display: inline-block;
+        height: $menu-height;
+        line-height: $menu-height;
+     }
+     &.active {
+        background-color: transparent;
+        &:before {
+           content: '\f106';
+        }
+     }
+     .navicon {
+        display: none;
+     }
+  }
+  li {
+     a {
+        padding: .75rem 0;
+        min-height: $menu-height;
+        background-color: transparent;
+        border-bottom: 1px solid $gray-100;
+     }
+     ul {
+        @extend .list-unstyled;
+        padding-left: 1rem;
+        li {
+           a {
+              border-bottom: 0;
+              background-color: transparent;
+           }
+           ul {
+              li {
+                 a {
+                    background-color: transparent;
+                 }
+              }
+           }
+        }
+     }
+  }
+}

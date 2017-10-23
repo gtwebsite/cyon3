@@ -5,90 +5,29 @@ html {
 html, body {
     overflow-x: hidden;
     &.overlay-lock {
-    	overflow: hidden;
+        overflow: hidden;
     }
 }
 ::-moz-selection {
-   color: $white;
-   background-color: $brand-primary;
+    color: $white;
+    background-color: theme-color('primary');
 }
 ::selection {
-   color: $white;
-   background-color: $brand-primary;
+    color: $white;
+    background-color: theme-color('primary');
 }
 img {
-   max-width: 100%;
-   height: auto;
+    @extend .img-fluid;
 }
-h1, h2, h3, h4 {
-   margin-top: $spacing-2;
+h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, table, form {
+    margin-bottom: $spacer-1;
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
-h2, h3, h4, h5, h6, p, ul, ol, dl {
-   margin-bottom: $spacing-1;
-}
-* > h1:first-child, * > h2:first-child, * > h3:first-child, * > h4:first-child, * > h5:first-child, * > h6:first-child {
-   margin-top: 0;
-}
-* > p:last-child, * > ul:last-child, * > h1:last-child, * > h2:last-child, * > h3:last-child, * > h4:last-child, * > h5:last-child, * > h6:last-child, * > blockquote:last-child {
-   margin-bottom: 0;
+table {
+    width: 100%;
 }
 a {
-   transition: all ease-in-out .3s;
-}
-.dark {
-   color: $white;
-   a, p, ul, ol, dl {
-         color: $white;
-      a {
-         color: $white;
-      }
-   }
-}
-
-.iframe {
-   -webkit-overflow-scrolling: touch;
-   border: 0;
-   overflow: hidden;
-   white-space: nowrap;
-   width: 1px;
-   min-width: 100%;
-   *width: 100%;
-   iframe {
-      width: 100%;
-      display: block;
-   }
-}
-.columns {
-   column-count: 2;
-   column-gap: $grid-gutter-width-base;
-   @include media-breakpoint-down(xs) {
-      column-count: 1;
-      column-gap: 0;
-   }
-   p {
-      -webkit-column-break-inside: avoid;
-      page-break-inside: avoid;
-      break-inside: avoid;
-   }
-}
-.vmiddle {
-   position: relative;
-   .vmiddleItem {
-      top: 50%;
-      width: 100%;
-      position: absolute;
-      transform: translate(0, -50%);
-   }
-   .vmiddleCenteredItem {
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      position: absolute;
-      transform: translate(-50%, -50%);
-   }
-}
-.swiper-container {
-   .swiper-wrapper {
-      box-sizing: inherit;
-   }
+    @include transition();
 }

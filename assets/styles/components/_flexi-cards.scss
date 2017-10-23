@@ -1,7 +1,7 @@
 .f-row {
    @include make-row();
    .f-card {
-      margin-bottom: $grid-gutter-width-base;
+      margin-bottom: $grid-gutter-width;
    }
 }
 
@@ -36,14 +36,14 @@
    .f-card-main {
       padding-left: 1rem;
       padding-right: 1rem;
-      border: 1px solid $gray-lighter;
+      border: 1px solid $gray-200;
       background-color: $white;
    }
    .f-card-footer {
       padding: 1rem;
-      border: 1px solid $gray-lighter;
+      border: 1px solid $gray-200;
       border-top: 0;
-      background-color: $gray-lightest;
+      background-color: $gray-100;
       &.f-card-action {
          padding: 0;
          border: 0;

@@ -1,24 +1,14 @@
-body.tag {
-	display: block;
-  padding: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  color: inherit;
-  text-align: inherit;
-  white-space: inherit;
-}
 body.archive {
 	.body {
 		.page-section {
 			.post {
 				&+.post {
-					margin-top: $spacing-1;
-					padding-top: $spacing-1;
-					border-top: 1px solid $gray-lighter;
+					margin-top: $spacer-1;
+					padding-top: $spacer-1;
+					border-top: 1px solid $gray-200;
 				}
 				header {
-					margin-bottom: $spacing-1;
+					margin-bottom: $spacer-1;
 					h2 {
 						margin-bottom: 0;
 					}
@@ -28,7 +18,7 @@ body.archive {
 	}
 }
 .navigation {
-	margin-top: $spacing-1;
+	margin-top: $spacer-1;
 	.nav-links {
 		@extend .clearfix;
 		a {

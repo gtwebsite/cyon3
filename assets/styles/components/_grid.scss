@@ -1,88 +1,46 @@
+// Text Grid
+.text-columns {
+  column-count: 2;
+  column-gap: $grid-gutter-width;
+  @include media-breakpoint-down(xs) {
+    column-count: 1;
+    column-gap: 0;
+  }
+  p {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
 // Small Grid
 .row-sm {
-   @include make-row( $grid-gutter-widths-sm );
-   > * {
-      @include make-col-ready( $grid-gutter-widths-sm );
-      padding-top: ( $grid-gutter-width-sm / 2 );
-      padding-bottom: ( $grid-gutter-width-sm / 2 );
-   }
+  @include make-row();
+  margin-right: ($grid-gutter-width-sm / -2);
+  margin-left:  ($grid-gutter-width-sm / -2);
+  > * {
+    @include make-col-ready();
+    padding: ($grid-gutter-width-sm / 2);
+  }
 }
-
 .row-xs {
-   @include make-row( $grid-gutter-widths-xs );
-   > * {
-      @include make-col-ready( $grid-gutter-widths-xs );
-      padding-top: ( $grid-gutter-width-xs / 2 );
-      padding-bottom: ( $grid-gutter-width-xs / 2 );
-   }
+  @include make-row();
+  margin-right: ($grid-gutter-width-xs / -2);
+  margin-left:  ($grid-gutter-width-xs / -2);
+  > * {
+    @include make-col-ready();
+    padding: ($grid-gutter-width-sm / 2);
+  }
 }
 
-// Grid system
-.body {
-  body:not(.sidebar-primary) & > .row {
+// Container issue
+.container {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+    width: auto;
     margin-left: 0;
     margin-right: 0;
-    > main {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-  .sidebar-primary & {
-    @extend .container;
-    padding-top: 4.375rem;
-    padding-bottom: 4.375rem;
-  }
-}
-.main {
-  @include make-col-ready();
-  @include media-breakpoint-only(md) {
-    @include make-col(12);
-    .sidebar-primary & {
-      @include make-col(8);
-    }
-  }
-  @include media-breakpoint-up(lg) {
-    @include make-col(12);
-    .sidebar-primary & {
-      @include make-col(9);
-    }
-  }
-}
-.sidebar {
-  @include make-col-ready();
-  @include media-breakpoint-only(md) {
-    @include make-col(4);
-  }
-  @include media-breakpoint-up(lg) {
-    @include make-col(3);
-  }
-  @include media-breakpoint-down(sm) {
-     margin-top: $spacing-2;
-  }
-}
-.page-header {
-  padding-top: $spacing-2;
-  padding-bottom: $spacing-2;
-  background-color: $gray-lighter;
-  .sidebar-primary & {
-    padding-top: 0;
-    padding-bottom: $spacing-1;
-    background-color: transparent;
-    .container {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-}
-.page-section {
-  padding-top: $spacing-2;
-  padding-bottom: $spacing-2;
-  .sidebar-primary & {
-    padding-top: 0;
-    padding-bottom: 0;
-    .container {
-      padding-left: 0;
-      padding-right: 0;
-    }
+    max-width: inherit;
   }
 }
