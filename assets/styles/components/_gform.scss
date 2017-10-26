@@ -53,22 +53,6 @@
 							}
 						}
 					}
-					/*
-					.gfield_radio {
-						> li {
-							@extend .abc-radio;
-							@extend .abc-radio-primary;
-							padding-left: 7px;
-						}
-					}
-					.gfield_checkbox {
-						> li {
-							@extend .abc-checkbox;
-							@extend .abc-checkbox-primary;
-							padding-left: 4px;
-						}
-					}
-					*/
 					.clear-multi {
 						@include make-row();
 						> * {
