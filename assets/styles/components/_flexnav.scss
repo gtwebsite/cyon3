@@ -16,11 +16,16 @@
         }
      }
      &.opacity {
-        opacity: 0;
-     }
-     &.flexnav-show {
-        opacity: 1;
-     }
+      opacity: 0;
+      visibility: hidden;
+      display: block;
+    }
+    &.flexnav-show {
+      display: block;
+      visibility: visible;
+      opacity: 1;
+      transition-delay: .02s;
+    }
   }
   .touch-button {
      display: block;
