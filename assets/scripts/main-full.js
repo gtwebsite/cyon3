@@ -45,7 +45,24 @@ wow.init();
 
         // jssocials
         $('.sharebuttons').jsSocials({
-          shares: ['facebook','twitter','googleplus','pinterest','email'],
+          shares: [{
+            share: "googleplus",
+            logo: "fab fa-google-plus-g"
+          },{
+            share: "facebook",
+            logo: "fab fa-facebook-f"
+          },{
+            share: "linkedin",
+            logo: "fab fa-linkedin-in"
+          },{
+            share: "twitter",
+            logo: "fab fa-twitter"
+          },{
+            share: "pinterest",
+            logo: "fab fa-pinterest-p"
+          }],
+          showLabel: false,
+          showCount: false,
           shareIn: 'popup'
         });
 
