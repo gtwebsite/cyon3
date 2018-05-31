@@ -27,6 +27,7 @@
     "php": ">=5.4.0",
     "composer/installers": "~1.0",
     "tgmpa/tgm-plugin-activation" : ">=2.6.1",
-    "dg/twitter-php": ">=3.6"
+    "dg/twitter-php": ">=3.6",
+    "facebook/graph-sdk": "^5.6"
   }
 }

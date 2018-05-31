@@ -2,8 +2,8 @@
 
 ## Vendors
 * Sage 8.5.2: [https://github.com/roots/sage](https://github.com/roots/sage)
-* Bootstrap 4 - Beta: [https://getbootstrap.com/](https://getbootstrap.com/)
-* FontAwesome 4.7.0: [http://fontawesome.io/icons/](http://fontawesome.io/icons/)
+* Bootstrap 4.1: [https://getbootstrap.com/](https://getbootstrap.com/)
+* FontAwesome 5: [http://fontawesome.io/icons/](http://fontawesome.io/icons/)
 * Gmap3 7.2: [http://gmap3.net/](http://gmap3.net/)
 * TGM Plugin Activation [http://tgmpluginactivation.com/](http://tgmpluginactivation.com/)
 * Twitter Php [https://github.com/dg/twitter-php](https://github.com/dg/twitter-php)
@@ -24,7 +24,7 @@
 * Remove unused scripts in bower.json and its reference in assets/scripts/main.js, like stellar, swiper, jssocials, and localScroll.
 
 ## Available Shortcodes
-* Fontawesome icon: `[fa icon="" link=""]`
+* Fontawesome 5 icon: `[fa icon="" link=""]`
 * Gmap3: `[map lat="" lng="" zoom="" height="" icon=""]` - create ACF field global `google_map_key` and [enter api key](https://developers.google.com/maps/documentation/javascript/get-api-key)
 * Instagram: `[instagram token="" limit=""]` - get [token here](http://instagram.pixelunion.net/)
 * Twitter Search: `[twitter_search consumer_key="" consumer_secret="" access_token="" access_token_secret="" search="" limit=""]`

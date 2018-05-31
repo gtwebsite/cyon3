@@ -1,3 +1,7 @@
+### 3.2.1: May 5th, 2018
+* Updated to Bootstrap 5.1.1
+* Updated to Sage 8.5.4
+
 ### 3.2.0: October 14th, 2017
 * Updated to Bootstrap 4.0.0-beta
 * Updated to Sage 8.5.2

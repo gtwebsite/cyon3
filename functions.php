@@ -21,6 +21,7 @@ $sage_includes = [
   'lib/gform.php',        // Gform overrides
   'lib/shortcodes.php',   // Common shortcodes
   'lib/tgmpa.php',        // Plugin Activation
+  'lib/facebook-posts.php', // Facebook posts
   'vendor/autoload.php'   // Load vendors
 ];
 
