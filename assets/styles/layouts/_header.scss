@@ -35,6 +35,11 @@
 		.touch-button {
 			display: none;
 		}
+		&:focus, &:active {
+			box-shadow: none;
+			border: 0;
+			outline: 0;
+		}
 	}
 	&.banner-sticky {
 		opacity: 0;

@@ -1,3 +1,8 @@
+.menu-button {
+  @media (min-width: 800px) {
+    display: block;
+  }
+}
 .flexnav {
   @media (min-width: 800px) {
      li {
